@@ -13,7 +13,6 @@ namespace RimworldCustomShipStart
 
         // Optional things to spawn inside (beds, lamps, etc.)
         public List<ShipThingEntry> things;
-        public List<ShipThingEntry> turrets;
 
         public int gravEngineXCoord;
         public int gravEngineZCoord;
