@@ -83,6 +83,7 @@
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="CustomShipStart\CustomShipMod.cs" />
     <Compile Include="CustomShipStart\CustomShipModSettings.cs" />
+    <Compile Include="CustomShipStart\Exporter\Dialog_NameShip.cs" />
     <Compile Include="CustomShipStart\Exporter\GravshipExporter.cs" />
     <Compile Include="CustomShipStart\Exporter\LayoutFileUtility.cs" />
     <Compile Include="CustomShipStart\Exporter\Patch_GravEngine_GetGizmos.cs" />
@@ -124,7 +125,7 @@
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties BuildVersion_StartDate="2000/1/1" BuildVersion_BuildVersioningStyle="None.None.Increment.TimeStamp" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_UpdateFileVersion="True" />
+      <UserProperties BuildVersion_UpdateFileVersion="True" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_BuildVersioningStyle="None.None.Increment.TimeStamp" BuildVersion_StartDate="2000/1/1" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

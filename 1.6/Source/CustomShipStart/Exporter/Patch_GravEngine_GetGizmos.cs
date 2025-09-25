@@ -22,7 +22,9 @@ namespace RimworldCustomShipStart
                 defaultLabel = "Export Gravship Layout",
                 defaultDesc = "Save this ship as an XML layout.",
                 icon = SaveTex,
-                action = () => GravshipExporter.Export(__instance)
+                action = () => {
+                    Find.WindowStack.Add(new Dialog_NameShip(__instance));
+                }
             });
 
             __result = list;

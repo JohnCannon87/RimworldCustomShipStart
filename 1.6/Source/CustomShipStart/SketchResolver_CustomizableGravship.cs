@@ -17,12 +17,14 @@ namespace RimworldCustomShipStart
         {
             if (ModLister.CheckOdyssey("Ancient launch pad"))
             {
-                // Load your exported def (however you store/choose it)
-                ShipLayoutDefV2 layout = DefDatabase<ShipLayoutDefV2>.GetNamedSilentFail("CustomShipDef");
-
-                // Convert to Sketch and merge
-                Sketch built = ShipSketchBuilder.BuildFromLayout(layout);
-                parms.sketch.Merge(built);
+                // If no ship was explicitly provided, try to load the last one from mod settings
+                var settings = LoadedModManager.GetMod<CustomShipMod>()?.GetSettings<CustomShipModSettings>();
+                if (settings?.lastUsedShip != null)
+                {
+                    Log.Message("[CustomShipStart] Auto-loading last used ship from settings...");
+                    Sketch built = ShipSketchBuilder.BuildFromLayout(settings.lastUsedShip);
+                    parms.sketch.Merge(built);
+                }
             }
         }
     }

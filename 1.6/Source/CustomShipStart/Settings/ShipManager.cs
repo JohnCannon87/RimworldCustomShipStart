@@ -51,31 +51,6 @@ namespace RimworldCustomShipStart
             Log.Message($"[CustomShipStart] Refresh complete. {loadedShips.Count} ships loaded.");
         }
 
-        public static void ApplySelection(string fileName)
-        {
-            if (!loadedShips.TryGetValue(fileName, out var ship))
-            {
-                Log.Error($"[CustomShipStart] ApplySelection failed: no ship loaded for {fileName}");
-                return;
-            }
-
-            // Make a copy so we don’t mutate original reference
-            ShipLayoutDefV2 customShip = new ShipLayoutDefV2
-            {
-                defName = "CustomShipDef",
-                label = ship.label,
-                rows = ship.rows,
-                width = ship.width,
-                height = ship.height,
-                gravEngineX = ship.gravEngineX,
-                gravEngineZ = ship.gravEngineZ
-            };
-
-            DefDatabase<ShipLayoutDefV2>.Add(customShip);
-            Log.Message($"[CustomShipStart] Applied ship {fileName} as CustomShipDef");
-
-            Clear();
-        }
     }
     
 }

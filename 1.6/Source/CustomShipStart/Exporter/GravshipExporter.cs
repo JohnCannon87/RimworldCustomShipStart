@@ -10,7 +10,7 @@ namespace RimworldCustomShipStart
 {
     public static class GravshipExporter
     {
-        public static void Export(Building_GravEngine engine)
+        public static void Export(Building_GravEngine engine, string customName = null)
         {
             try
             {
@@ -21,6 +21,13 @@ namespace RimworldCustomShipStart
                 {
                     Log.Warning("[CustomShipStart] ExportV2 failed: layout was null.");
                     return;
+                }
+
+                // Use provided name if available
+                if (!string.IsNullOrEmpty(customName))
+                {
+                    layout.defName = customName.Replace(" ", "_");
+                    layout.label = customName;
                 }
 
                 string folder = Path.Combine(GenFilePaths.ConfigFolderPath, "CustomShipStart");
@@ -85,6 +92,17 @@ namespace RimworldCustomShipStart
                     {
                         if (thing.def == engine.def) continue;
                         if (thing is Pawn) continue;
+                        // Skip non-buildings, non-structures, and any loose items
+                        if (thing.def.category != ThingCategory.Building && thing.def.category != ThingCategory.Item)
+                            continue;
+
+                        // Skip loose items (e.g. meals, steel) — we only care about buildings and installed furniture
+                        if (thing.def.category == ThingCategory.Item)
+                            continue;
+
+                        // Skip filth, corpses, apparel, projectiles, motes, etc.
+                        if (thing.def.IsFilth || thing.def.IsCorpse || thing.def.IsPlant || thing.def.IsIngestible)
+                            continue;
 
                         // Only add once, at root cell
                         if (thing.Position != cell) continue;

@@ -4,11 +4,21 @@ namespace RimworldCustomShipStart
 {
     public class CustomShipModSettings : ModSettings
     {
-        public string selectedFileName = null;
+        public ShipLayoutDefV2 lastUsedShip;
 
         public override void ExposeData()
         {
-            Scribe_Values.Look(ref selectedFileName, "selectedFileName");
+            // ✅ Save the defName and label alongside the full layout
+            if (Scribe.mode == LoadSaveMode.Saving && lastUsedShip != null)
+            {
+                if (string.IsNullOrEmpty(lastUsedShip.defName))
+                    lastUsedShip.defName = "CustomShip_" + Find.TickManager.TicksGame;
+
+                if (string.IsNullOrEmpty(lastUsedShip.label))
+                    lastUsedShip.label = lastUsedShip.defName;
+            }
+
+            Scribe_Deep.Look(ref lastUsedShip, "lastUsedShip");
         }
     }
 }
