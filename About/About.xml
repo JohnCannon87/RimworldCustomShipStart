@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-	<name>Custom Ship Start</name>
+	<name>Gravship Exporter</name>
 	<author>Arcjc007</author>
-	<packageId>Arcjc007.CustomShipStart</packageId>
+	<packageId>Arcjc007.GravshipExporter</packageId>
 	<supportedVersions>
 		<li>1.6</li>
 	</supportedVersions>
-	<description><![CDATA[Allows a custom ship to be defined in XML for the Gravship starting scenario, does nothing by itself requires another mod to patch the XML to define a new ship.
+	<description><![CDATA[Allows exporting of a gravship to use on a new playthrough as the starting ship for a Gravship start scenario
 	]]>
 	</description>
 	<modDependencies>

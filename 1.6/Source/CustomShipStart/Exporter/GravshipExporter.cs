@@ -82,30 +82,31 @@ namespace RimworldCustomShipStart
 
                     var shipCell = new ShipCell();
 
-                    // Foundation terrain
-                    var foundation = cell.GetTerrain(map);
-                    if (foundation != null)
-                        shipCell.foundationDef = foundation.defName;
+                    // Terrain
+                    TerrainDef terrain = cell.GetTerrain(map);
+                    if (terrain != null && !terrain.IsSubstructure)
+                    {
+                        // Save the visible floor/terrain if it's not just substructure
+                        shipCell.terrainDef = terrain.defName;
+                    }
 
                     // Things
+                    bool hasStructures = false;
                     foreach (var thing in cell.GetThingList(map))
                     {
                         if (thing.def == engine.def) continue;
                         if (thing is Pawn) continue;
-                        // Skip non-buildings, non-structures, and any loose items
+
+                        // Skip non-buildings / non-structures / loose items
                         if (thing.def.category != ThingCategory.Building && thing.def.category != ThingCategory.Item)
                             continue;
-
-                        // Skip loose items (e.g. meals, steel) — we only care about buildings and installed furniture
                         if (thing.def.category == ThingCategory.Item)
                             continue;
-
-                        // Skip filth, corpses, apparel, projectiles, motes, etc.
                         if (thing.def.IsFilth || thing.def.IsCorpse || thing.def.IsPlant || thing.def.IsIngestible)
                             continue;
-
-                        // Only add once, at root cell
                         if (thing.Position != cell) continue;
+
+                        hasStructures = true;
 
                         string stuffName = null;
                         if (thing.def.MadeFromStuff && thing.Stuff != null)
@@ -126,10 +127,32 @@ namespace RimworldCustomShipStart
                                     $"size={thing.def.size} rot={thing.Rotation.AsInt} stuff={stuffName ?? "null"}");
                     }
 
+                    // 🔎 Smart foundation inference
+                    bool shouldHaveFoundation = false;
+
+                    if (terrain != null && (terrain.isFoundation || terrain.IsSubstructure))
+                    {
+                        shouldHaveFoundation = true;
+                    }
+                    else if (hasStructures)
+                    {
+                        shouldHaveFoundation = true;
+                    }
+                    else if (terrain != null && (terrain.IsFloor || terrain.IsCarpet) && !terrain.natural && !terrain.IsSoil)
+                    {
+                        shouldHaveFoundation = true;
+                    }
+
+                    if (shouldHaveFoundation)
+                    {
+                        shipCell.foundationDef = "Substructure";
+                    }
+
                     row.Add(shipCell.HasAnyData ? shipCell : null);
                 }
                 rows.Add(row);
             }
+
 
             return new ShipLayoutDefV2
             {

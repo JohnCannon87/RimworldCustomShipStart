@@ -66,21 +66,9 @@ namespace RimworldCustomShipStart
                     var foundation = ResolveTerrain(cell.foundationDef, terrainCache);
                     if (foundation != null) sketch.AddTerrain(foundation, pos);
 
-                    // Terrain
-                    var terrain = ResolveTerrain(cell.terrainDef, terrainCache);
-                    if (terrain != null && terrain != foundation)
-                    {
-                        if (foundation != null)
-                        {
-                            if (LogWarn)
-                                Log.Warning($"[CustomShipStart] Skipping terrain '{terrain.defName}' at ({x},{z}) " +
-                                            $"to avoid overwriting foundation '{foundation.defName}'.");
-                        }
-                        else
-                        {
-                            sketch.AddTerrain(terrain, pos);
-                        }
-                    }
+                    // Terrain - Don't add terrain for now, we capture it but adding it breaks the foundation appearing which is obviously bad
+                    /*var terrain = ResolveTerrain(cell.terrainDef, terrainCache);
+                    if (terrain != null) sketch.AddTerrain(terrain, pos, false);*/
 
                     // Things
                     if (cell.things != null && cell.things.Count > 0)
@@ -188,11 +176,11 @@ namespace RimworldCustomShipStart
             // Some defs don’t define affordance but still work (like resources)
             if (def.category == ThingCategory.Building && def.building != null)
             {
-                if (def.terrainAffordanceNeeded == null)
+                /*if (def.terrainAffordanceNeeded == null)
                 {
                     Log.Warning($"[CustomShipStart] Def {def.defName} has no terrainAffordanceNeeded; skipping.");
                     return false;
-                }
+                }*/
             }
 
             return true;

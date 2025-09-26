@@ -1,0 +1,4815 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+<RimworldCustomShipStart.ShipLayoutDefV2>
+  <rows>
+    <li>
+      <li IsNull="True" />
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+    </li>
+    <li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>SmallThruster</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>1</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>ChemfuelTank</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>Shelf</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>WallLamp</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>2</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>Shelf</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>Vent</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>1</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>DiningChair</defName>
+            <stuffDef>WoodLog</stuffDef>
+            <rotInteger>1</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>WallLamp</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>2</rotInteger>
+          </li>
+          <li>
+            <defName>Table1x2c</defName>
+            <stuffDef>WoodLog</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>DiningChair</defName>
+            <stuffDef>WoodLog</stuffDef>
+            <rotInteger>3</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>Heater</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>PowerConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+    </li>
+    <li>
+      <li IsNull="True" />
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>OrbitalTradeBeacon</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>OxygenPump</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>1</rotInteger>
+          </li>
+          <li>
+            <defName>FirefoamPopper</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>DiningChair</defName>
+            <stuffDef>WoodLog</stuffDef>
+            <rotInteger>1</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>DiningChair</defName>
+            <stuffDef>WoodLog</stuffDef>
+            <rotInteger>3</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>Bed</defName>
+            <stuffDef>WoodLog</stuffDef>
+            <rotInteger>3</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>EndTable</defName>
+            <stuffDef>WoodLog</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>WallLamp</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>2</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>Bed</defName>
+            <stuffDef>WoodLog</stuffDef>
+            <rotInteger>1</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>PowerConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>PowerConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>Sandbags</defName>
+            <stuffDef>Cloth</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>Sandbags</defName>
+            <stuffDef>Cloth</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+    </li>
+    <li>
+      <li IsNull="True" />
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>ChemfuelTank</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>Door</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>1</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>Door</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>1</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>Heater</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>OxygenPump</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>1</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>PowerConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>Turret_MiniTurret</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>Sandbags</defName>
+            <stuffDef>Cloth</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+    </li>
+    <li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>SmallThruster</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>1</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>Battery</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>1</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>Shelf</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>2</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>TubeTelevision</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>2</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>Armchair</defName>
+            <stuffDef>Cloth</stuffDef>
+            <rotInteger>1</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>ChessTable</defName>
+            <stuffDef>BlocksMarble</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>Armchair</defName>
+            <stuffDef>Cloth</stuffDef>
+            <rotInteger>3</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>Bed</defName>
+            <stuffDef>WoodLog</stuffDef>
+            <rotInteger>3</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>EndTable</defName>
+            <stuffDef>WoodLog</stuffDef>
+            <rotInteger>2</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>Bed</defName>
+            <stuffDef>WoodLog</stuffDef>
+            <rotInteger>1</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>PowerConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>PowerConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>Sandbags</defName>
+            <stuffDef>Cloth</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>Sandbags</defName>
+            <stuffDef>Cloth</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+    </li>
+    <li>
+      <li IsNull="True" />
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>Autodoor</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>PowerConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+    </li>
+    <li>
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>WallLamp</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>3</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>VacBarrier</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>1</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+    </li>
+    <li>
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>PowerConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>PowerConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>PowerConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>PowerConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>PowerConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>PowerConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>Autodoor</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>PowerConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>PowerConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>PowerConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>PowerConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+    </li>
+    <li>
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>PowerConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravcorePowerCell</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>WallLamp</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>2</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>Heater</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>PowerConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>PowerConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>PowerConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+    </li>
+    <li>
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>PowerConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>PowerConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>PowerConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>Sandbags</defName>
+            <stuffDef>Cloth</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>Sandbags</defName>
+            <stuffDef>Cloth</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+    </li>
+    <li>
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>PowerConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipShieldGenerator</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>DiningChair</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>1</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>PilotConsole</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>1</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravcorePowerCell</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>PowerConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>Turret_MiniTurret</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>Sandbags</defName>
+            <stuffDef>Cloth</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+    </li>
+    <li>
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>PowerConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>PowerConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>PowerConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>Sandbags</defName>
+            <stuffDef>Cloth</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>Sandbags</defName>
+            <stuffDef>Cloth</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+    </li>
+    <li>
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>PowerConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravcorePowerCell</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>OxygenPump</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>WallLamp</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>PowerConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>PowerConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>PowerConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+    </li>
+    <li>
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>PowerConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>PowerConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>PowerConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>PowerConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>PowerConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>PowerConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>Autodoor</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>PowerConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>PowerConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>PowerConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>PowerConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+    </li>
+    <li>
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>WallLamp</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>3</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>VacBarrier</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>1</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+    </li>
+    <li>
+      <li IsNull="True" />
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>Autodoor</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>Cooler</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>2</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>PowerConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+    </li>
+    <li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>SmallThruster</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>1</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>ChemfuelTank</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>Battery</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>1</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>Shelf</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>HydroponicsBasin</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>1</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>Shelf</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>PowerConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>PowerConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>Sandbags</defName>
+            <stuffDef>Cloth</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>Sandbags</defName>
+            <stuffDef>Cloth</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+    </li>
+    <li>
+      <li IsNull="True" />
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>Door</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>1</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>Autodoor</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>1</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>DiningChair</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>ShelfSmall</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>3</rotInteger>
+          </li>
+          <li>
+            <defName>OxygenPump</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>1</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>PowerConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>Turret_MiniTurret</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>Sandbags</defName>
+            <stuffDef>Cloth</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+    </li>
+    <li>
+      <li IsNull="True" />
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>ChemfuelTank</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>OrbitalTradeBeacon</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>OxygenPump</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>1</rotInteger>
+          </li>
+          <li>
+            <defName>FirefoamPopper</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>DiningChair</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>TableButcher</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>WallLamp</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>ToolCabinet</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>PowerConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>PowerConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>Sandbags</defName>
+            <stuffDef>Cloth</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>Sandbags</defName>
+            <stuffDef>Cloth</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+    </li>
+    <li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>SmallThruster</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>1</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>WallLamp</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>Shelf</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>2</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>Shelf</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>2</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>Vent</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>1</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>Heater</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>WallLamp</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>ElectricStove</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things />
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>ShelfSmall</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>2</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>PowerConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+    </li>
+    <li>
+      <li IsNull="True" />
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li>
+        <foundationDef>Substructure</foundationDef>
+        <foundationStuff IsNull="True" />
+        <terrainDef IsNull="True" />
+        <terrainStuff IsNull="True" />
+        <things>
+          <li>
+            <defName>GravshipHull</defName>
+            <stuffDef>Steel</stuffDef>
+            <rotInteger>0</rotInteger>
+          </li>
+          <li>
+            <defName>HiddenConduit</defName>
+            <stuffDef IsNull="True" />
+            <rotInteger>0</rotInteger>
+          </li>
+        </things>
+      </li>
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+      <li IsNull="True" />
+    </li>
+  </rows>
+  <width>24</width>
+  <height>21</height>
+  <gravEngineX>9</gravEngineX>
+  <gravEngineZ>10</gravEngineZ>
+  <defName>Advanced_Starter_Ship</defName>
+  <label>Advanced Starter Ship</label>
+  <descriptionHyperlinks IsNull="True" />
+  <ignoreIllegalLabelCharacterConfigError>False</ignoreIllegalLabelCharacterConfigError>
+</RimworldCustomShipStart.ShipLayoutDefV2>
+</Defs>

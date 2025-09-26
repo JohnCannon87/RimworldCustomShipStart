@@ -296,6 +296,7 @@ namespace RimworldCustomShipStart
         {
             var rows = new List<ShipItem>();
 
+            // ✅ User-created (previously "Exported")
             foreach (var kvp in ShipManager.LoadedShips)
             {
                 rows.Add(new ShipItem
@@ -303,7 +304,7 @@ namespace RimworldCustomShipStart
                     Ship = kvp.Value,
                     IsExported = true,
                     ExportFilename = kvp.Key,
-                    SourceLabel = "Exported"
+                    SourceLabel = "User Created"
                 });
             }
 
@@ -315,10 +316,16 @@ namespace RimworldCustomShipStart
                 if (ship == null || string.IsNullOrEmpty(ship.defName)) continue;
                 if (exportedDefNames.Contains(ship.defName)) continue;
 
+                // ✅ Detect if this def belongs to *our own mod* (the built-in examples)
                 string source = "Built-in";
                 var pack = ship.modContentPack;
-                if (pack != null && !string.IsNullOrEmpty(pack.Name))
-                    source = $"Mod: {pack.Name}";
+                if (pack != null)
+                {
+                    if (pack.PackageId.Equals(Content.PackageId, StringComparison.OrdinalIgnoreCase))
+                        source = "Built-in Example";
+                    else
+                        source = $"Mod: {pack.Name}";
+                }
 
                 rows.Add(new ShipItem
                 {
@@ -331,6 +338,7 @@ namespace RimworldCustomShipStart
 
             return rows.OrderBy(r => r.Ship?.label).ToList();
         }
+
 
         private string CurrentSelectionKey()
         {
@@ -464,8 +472,14 @@ $@"<?xml version=""1.0"" encoding=""utf-8""?>
                 if (idx >= 0) trimmed = trimmed.Substring(idx + 2).Trim();
             }
 
+            // Replace root node if it’s just <ShipLayoutDefV2>
+            trimmed = trimmed
+                .Replace("<ShipLayoutDefV2>", "<RimworldCustomShipStart.ShipLayoutDefV2>")
+                .Replace("</ShipLayoutDefV2>", "</RimworldCustomShipStart.ShipLayoutDefV2>");
+
             return $"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<Defs>\n{trimmed}\n</Defs>\n";
         }
+
 
         private static string SanitizeFolderName(string name)
         {
