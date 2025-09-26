@@ -1,7 +1,7 @@
 ﻿using HarmonyLib;
 using Verse;
 
-namespace RimworldCustomShipStart
+namespace GravshipExport
 {
     // Ensures PatchAll runs when the game loads the assembly
     [StaticConstructorOnStartup]

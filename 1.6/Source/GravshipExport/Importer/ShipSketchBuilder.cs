@@ -4,7 +4,7 @@ using RimWorld;
 using RimWorld.SketchGen;
 using Verse;
 
-namespace RimworldCustomShipStart
+namespace GravshipExport
 {
     /// <summary>
     /// Builds a RimWorld Sketch from a ShipLayoutDefV2 (cell-based export).
@@ -22,19 +22,19 @@ namespace RimworldCustomShipStart
         {
             if (layout == null)
             {
-                Log.Error("[CustomShipStart] BuildFromLayout: layout is null.");
+                Log.Error("[GravshipExport] BuildFromLayout: layout is null.");
                 return new Sketch();
             }
             if (layout.rows == null || layout.rows.Count == 0)
             {
-                Log.Error($"[CustomShipStart] BuildFromLayout: layout '{layout.defName}' has no rows.");
+                Log.Error($"[GravshipExport] BuildFromLayout: layout '{layout.defName}' has no rows.");
                 return new Sketch();
             }
 
             if (LogInfo)
             {
-                Log.Message($"[CustomShipStart] BuildFromLayout: '{layout.defName}' size {layout.width}x{layout.height}, rows={layout.rows.Count}.");
-                Log.Message($"[CustomShipStart] Engine offset: ({layout.gravEngineX}, {layout.gravEngineZ}).");
+                Log.Message($"[GravshipExport] BuildFromLayout: '{layout.defName}' size {layout.width}x{layout.height}, rows={layout.rows.Count}.");
+                Log.Message($"[GravshipExport] Engine offset: ({layout.gravEngineX}, {layout.gravEngineZ}).");
             }
 
             var sketch = new Sketch();
@@ -51,7 +51,7 @@ namespace RimworldCustomShipStart
                 var row = layout.rows[z];
                 if (row == null)
                 {
-                    if (LogWarn) Log.Warning($"[CustomShipStart] BuildFromLayout: row {z} is null, skipping.");
+                    if (LogWarn) Log.Warning($"[GravshipExport] BuildFromLayout: row {z} is null, skipping.");
                     continue;
                 }
 
@@ -82,7 +82,7 @@ namespace RimworldCustomShipStart
                             if (!IsValidForSketch(thingDef))
                             {
                                 if (LogWarn)
-                                    Log.Warning($"[CustomShipStart] Skipping invalid thing '{t.defName}' at {pos}");
+                                    Log.Warning($"[GravshipExport] Skipping invalid thing '{t.defName}' at {pos}");
                                 continue;
                             }
 
@@ -107,7 +107,7 @@ namespace RimworldCustomShipStart
                             thingCount++;
 
                             if (LogInfo)
-                                Log.Message($"[CustomShipStart] Adding {thingDef.defName} " +
+                                Log.Message($"[GravshipExport] Adding {thingDef.defName} " +
                                             $"stuff={(stuffDef != null ? stuffDef.defName : "null")} " +
                                             $"at {pos} rot={rot}");
                         }
@@ -118,7 +118,7 @@ namespace RimworldCustomShipStart
             }
 
             if (LogInfo)
-                Log.Message($"[CustomShipStart] BuildFromLayout: finished. Structural cells={cellCount}, things added={thingCount}.");
+                Log.Message($"[GravshipExport] BuildFromLayout: finished. Structural cells={cellCount}, things added={thingCount}.");
 
             return sketch;
         }
@@ -135,7 +135,7 @@ namespace RimworldCustomShipStart
             }
             catch (Exception ex)
             {
-                Log.Error($"[CustomShipStart] Failed to place GravEngine at {pos}: {ex}");
+                Log.Error($"[GravshipExport] Failed to place GravEngine at {pos}: {ex}");
             }
         }
 
@@ -146,7 +146,7 @@ namespace RimworldCustomShipStart
 
             td = DefDatabase<TerrainDef>.GetNamedSilentFail(defName);
             if (td == null && LogWarn)
-                Log.Warning($"[CustomShipStart] ResolveTerrain: unknown TerrainDef '{defName}'.");
+                Log.Warning($"[GravshipExport] ResolveTerrain: unknown TerrainDef '{defName}'.");
             cache[defName] = td;
             return td;
         }
@@ -158,7 +158,7 @@ namespace RimworldCustomShipStart
 
             td = DefDatabase<ThingDef>.GetNamedSilentFail(defName);
             if (td == null && LogWarn)
-                Log.Warning($"[CustomShipStart] ResolveThing: unknown ThingDef '{defName}'.");
+                Log.Warning($"[GravshipExport] ResolveThing: unknown ThingDef '{defName}'.");
             cache[defName] = td;
             return td;
         }
@@ -178,7 +178,7 @@ namespace RimworldCustomShipStart
             {
                 /*if (def.terrainAffordanceNeeded == null)
                 {
-                    Log.Warning($"[CustomShipStart] Def {def.defName} has no terrainAffordanceNeeded; skipping.");
+                    Log.Warning($"[GravshipExport] Def {def.defName} has no terrainAffordanceNeeded; skipping.");
                     return false;
                 }*/
             }

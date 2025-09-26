@@ -1,13 +1,13 @@
 ﻿using System.IO;
 using Verse;
 
-namespace RimworldCustomShipStart
+namespace GravshipExport
 {
     public static class LayoutFileUtility
     {
         public static string GetSettingsFolder()
         {
-            return Path.Combine(GenFilePaths.ConfigFolderPath, "RimworldCustomShipStart");
+            return Path.Combine(GenFilePaths.ConfigFolderPath, "GravshipExport");
         }
 
         public static void SaveLayout(ShipLayoutDef layout)

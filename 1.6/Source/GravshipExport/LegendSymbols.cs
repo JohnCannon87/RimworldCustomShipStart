@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RimworldCustomShipStart
+namespace GravshipExport
 {
     public static class LegendSymbols
     {

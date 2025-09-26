@@ -2,7 +2,7 @@
 using UnityEngine;
 using Verse;
 
-namespace RimworldCustomShipStart
+namespace GravshipExport
 {
     public class Dialog_NameShip : Window
     {

@@ -1,7 +1,7 @@
 ﻿using Verse;
 using System.Collections.Generic;
 
-namespace RimworldCustomShipStart
+namespace GravshipExport
 {
     public class ShipLayoutDefV2 : Def, IExposable
     {

@@ -3,7 +3,7 @@ using RimWorld;
 using Verse;
 using System.Collections.Generic;
 
-namespace RimworldCustomShipStart
+namespace GravshipExport
 {
     [HarmonyPatch(typeof(SketchThing), "Spawn")]
     public static class Patch_SketchThing_Spawn
@@ -29,7 +29,7 @@ namespace RimworldCustomShipStart
             }
             catch (System.Exception ex)
             {
-                Log.Warning($"[CustomShipStart] Suppressed spawn exception for {__instance?.def?.defName ?? "unknown"} at {at}. Forcing spawn. Exception: {ex}");
+                Log.Warning($"[GravshipExport] Suppressed spawn exception for {__instance?.def?.defName ?? "unknown"} at {at}. Forcing spawn. Exception: {ex}");
 
                 try
                 {
@@ -44,7 +44,7 @@ namespace RimworldCustomShipStart
                 }
                 catch (System.Exception innerEx)
                 {
-                    Log.Error($"[CustomShipStart] Failed to force-spawn {__instance?.def?.defName}: {innerEx}");
+                    Log.Error($"[GravshipExport] Failed to force-spawn {__instance?.def?.defName}: {innerEx}");
                     __result = false; // failed
                 }
 

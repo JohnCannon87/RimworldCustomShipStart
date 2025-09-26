@@ -6,7 +6,7 @@ using System.Linq;
 using RimWorld;
 using Verse;
 
-namespace RimworldCustomShipStart
+namespace GravshipExport
 {
     public static class GravshipExporter
     {
@@ -14,12 +14,12 @@ namespace RimworldCustomShipStart
         {
             try
             {
-                Log.Message("[CustomShipStart] ExportV2 started.");
+                Log.Message("[GravshipExport] ExportV2 started.");
 
                 var layout = BuildLayout(engine);
                 if (layout == null)
                 {
-                    Log.Warning("[CustomShipStart] ExportV2 failed: layout was null.");
+                    Log.Warning("[GravshipExport] ExportV2 failed: layout was null.");
                     return;
                 }
 
@@ -30,18 +30,18 @@ namespace RimworldCustomShipStart
                     layout.label = customName;
                 }
 
-                string folder = Path.Combine(GenFilePaths.ConfigFolderPath, "CustomShipStart");
+                string folder = Path.Combine(GenFilePaths.ConfigFolderPath, "GravshipExport");
                 if (!Directory.Exists(folder))
                     Directory.CreateDirectory(folder);
 
                 string file = Path.Combine(folder, layout.defName + ".xml");
                 DirectXmlSaver.SaveDataObject(layout, file);
 
-                Log.Message($"[CustomShipStart] ExportV2 complete! Saved to {file}");
+                Log.Message($"[GravshipExport] ExportV2 complete! Saved to {file}");
             }
             catch (Exception ex)
             {
-                Log.Error($"[CustomShipStart] ExportV2 crashed: {ex}");
+                Log.Error($"[GravshipExport] ExportV2 crashed: {ex}");
             }
         }
 
@@ -51,7 +51,7 @@ namespace RimworldCustomShipStart
             var cells = engine.AllConnectedSubstructure.ToList();
             if (cells.Count == 0)
             {
-                Log.Warning("[CustomShipStart] Tried to export a gravship with no substructure.");
+                Log.Warning("[GravshipExport] Tried to export a gravship with no substructure.");
                 return null;
             }
 
@@ -63,7 +63,7 @@ namespace RimworldCustomShipStart
             int width = maxX - minX + 1;
             int height = maxZ - minZ + 1;
 
-            Log.Message($"[CustomShipStart] ExportV2 bounding box: {width}x{height} (x[{minX}-{maxX}], z[{minZ}-{maxZ}])");
+            Log.Message($"[GravshipExport] ExportV2 bounding box: {width}x{height} (x[{minX}-{maxX}], z[{minZ}-{maxZ}])");
 
             var rows = new List<List<ShipCell>>();
 
@@ -121,7 +121,7 @@ namespace RimworldCustomShipStart
 
                         shipCell.things.Add(entry);
 
-                        Log.Message($"[CustomShipStart] Exported thing {thing.def.defName} " +
+                        Log.Message($"[GravshipExport] Exported thing {thing.def.defName} " +
                                     $"at world=({thing.Position.x},{thing.Position.z}) " +
                                     $"grid=({x - minX},{z - minZ}) " +
                                     $"size={thing.def.size} rot={thing.Rotation.AsInt} stuff={stuffName ?? "null"}");

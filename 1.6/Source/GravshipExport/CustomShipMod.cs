@@ -7,7 +7,7 @@ using Verse;
 using RimWorld;
 using System.Security;
 
-namespace RimworldCustomShipStart
+namespace GravshipExport
 {
     public class CustomShipMod : Mod
     {
@@ -39,26 +39,26 @@ namespace RimworldCustomShipStart
             didInitialRefresh = false;
         }
 
-        public override string SettingsCategory() => "Custom Ship Start";
+        public override string SettingsCategory() => "Gravship Export";
 
         public override void DoSettingsWindowContents(Rect inRect)
         {
             // Refresh once when opening settings
             if (!didInitialRefresh)
             {
-                if (DebugLogs) Log.Message("[CustomShipStart/UI] Opening settings — performing initial refresh…");
+                if (DebugLogs) Log.Message("[GravshipExport/UI] Opening settings — performing initial refresh…");
                 ShipManager.Refresh();
                 didInitialRefresh = true;
 
                 if (DebugLogs)
                 {
-                    Log.Message($"[CustomShipStart/UI] After refresh: LoadedShips.Count={ShipManager.LoadedShips.Count}");
+                    Log.Message($"[GravshipExport/UI] After refresh: LoadedShips.Count={ShipManager.LoadedShips.Count}");
                     if (ShipManager.LoadedShips.Count > 0)
                     {
                         var keys = string.Join(", ", ShipManager.LoadedShips.Keys.Take(10));
-                        Log.Message($"[CustomShipStart/UI] First keys (up to 10): {keys}");
+                        Log.Message($"[GravshipExport/UI] First keys (up to 10): {keys}");
                     }
-                    Log.Message($"[CustomShipStart/UI] settings.lastUsedShip={(settings.lastUsedShip != null ? settings.lastUsedShip.defName : "null")}");
+                    Log.Message($"[GravshipExport/UI] settings.lastUsedShip={(settings.lastUsedShip != null ? settings.lastUsedShip.defName : "null")}");
                 }
 
                 TryRestoreLastUsedShip();
@@ -88,14 +88,14 @@ namespace RimworldCustomShipStart
         {
             if (settings.lastUsedShip == null)
             {
-                if (DebugLogs) Log.Message("[CustomShipStart/Restore] No lastUsedShip stored. Nothing to restore.");
+                if (DebugLogs) Log.Message("[GravshipExport/Restore] No lastUsedShip stored. Nothing to restore.");
                 return;
             }
 
             string defName = settings.lastUsedShip.defName;
             if (string.IsNullOrEmpty(defName))
             {
-                if (DebugLogs) Log.Warning("[CustomShipStart/Restore] lastUsedShip has no defName — cannot restore.");
+                if (DebugLogs) Log.Warning("[GravshipExport/Restore] lastUsedShip has no defName — cannot restore.");
                 return;
             }
 
@@ -103,7 +103,7 @@ namespace RimworldCustomShipStart
             if (exported != null)
             {
                 settings.lastUsedShip = exported;
-                if (DebugLogs) Log.Message($"[CustomShipStart/Restore] Matched lastUsedShip to exported ship by defName='{defName}'");
+                if (DebugLogs) Log.Message($"[GravshipExport/Restore] Matched lastUsedShip to exported ship by defName='{defName}'");
                 return;
             }
 
@@ -111,11 +111,11 @@ namespace RimworldCustomShipStart
             if (modDef != null)
             {
                 settings.lastUsedShip = modDef;
-                if (DebugLogs) Log.Message($"[CustomShipStart/Restore] Matched lastUsedShip to mod def by defName='{defName}'");
+                if (DebugLogs) Log.Message($"[GravshipExport/Restore] Matched lastUsedShip to mod def by defName='{defName}'");
                 return;
             }
 
-            Log.Warning($"[CustomShipStart/Restore] Could not find a ship with defName='{defName}'. Highlight may fail until reapplied.");
+            Log.Warning($"[GravshipExport/Restore] Could not find a ship with defName='{defName}'. Highlight may fail until reapplied.");
         }
 
         // ──────────────────────────────────────────────
@@ -292,7 +292,7 @@ namespace RimworldCustomShipStart
                     if (Widgets.ButtonText(exportRect, "Export"))
                     {
                         exportTarget = item;
-                        exportNameBuffer = $"CustomShip_{(ship.label ?? ship.defName ?? "NewShip")}";
+                        exportNameBuffer = $"Gravship_{(ship.label ?? ship.defName ?? "NewShip")}";
                         exportPromptOpen = true;
                     }
                 }
@@ -312,7 +312,7 @@ namespace RimworldCustomShipStart
                     {
                         settings.lastUsedShip = ship;
                         WriteSettings();
-                        Messages.Message($"[CustomShipStart] Ship '{ship.label}' set as default.", MessageTypeDefOf.PositiveEvent, false);
+                        Messages.Message($"[GravshipExport] Ship '{ship.label}' set as default.", MessageTypeDefOf.PositiveEvent, false);
                     }
                 }
             }
@@ -324,17 +324,17 @@ namespace RimworldCustomShipStart
         {
             try
             {
-                string path = Path.Combine(GenFilePaths.ConfigFolderPath, "CustomShipStart", filename);
+                string path = Path.Combine(GenFilePaths.ConfigFolderPath, "GravshipExport", filename);
                 if (File.Exists(path))
                 {
                     File.Delete(path);
-                    Messages.Message($"[CustomShipStart] Deleted ship: {filename}", MessageTypeDefOf.PositiveEvent, false);
+                    Messages.Message($"[GravshipExport] Deleted ship: {filename}", MessageTypeDefOf.PositiveEvent, false);
                 }
             }
             catch (Exception ex)
             {
-                Log.Error($"[CustomShipStart] Failed to delete ship file {filename}: {ex}");
-                Messages.Message("[CustomShipStart] Failed to delete ship file. See log.", MessageTypeDefOf.RejectInput, false);
+                Log.Error($"[GravshipExport] Failed to delete ship file {filename}: {ex}");
+                Messages.Message("[GravshipExport] Failed to delete ship file. See log.", MessageTypeDefOf.RejectInput, false);
             }
         }
 
@@ -465,14 +465,14 @@ namespace RimworldCustomShipStart
                 string defPath = Path.Combine(defsDir, defFileName);
                 File.WriteAllText(defPath, wrapped);
 
-                Messages.Message($"[CustomShipStart] Exported '{ship.label ?? ship.defName}' as mod:\n{modFolder}", MessageTypeDefOf.PositiveEvent, false);
-                if (DebugLogs) Log.Message($"[CustomShipStart/Export] Wrote About.xml to {aboutPath} (created only if absent)");
-                if (DebugLogs) Log.Message($"[CustomShipStart/Export] Wrote Def to {defPath}");
+                Messages.Message($"[GravshipExport] Exported '{ship.label ?? ship.defName}' as mod:\n{modFolder}", MessageTypeDefOf.PositiveEvent, false);
+                if (DebugLogs) Log.Message($"[GravshipExport/Export] Wrote About.xml to {aboutPath} (created only if absent)");
+                if (DebugLogs) Log.Message($"[GravshipExport/Export] Wrote Def to {defPath}");
             }
             catch (Exception ex)
             {
-                Log.Error($"[CustomShipStart/Export] Failed to export mod: {ex}");
-                Messages.Message("[CustomShipStart] Failed to export mod. See log.", MessageTypeDefOf.RejectInput, false);
+                Log.Error($"[GravshipExport/Export] Failed to export mod: {ex}");
+                Messages.Message("[GravshipExport] Failed to export mod. See log.", MessageTypeDefOf.RejectInput, false);
             }
             finally
             {
@@ -493,17 +493,17 @@ $@"<?xml version=""1.0"" encoding=""utf-8""?>
   <supportedVersions>
     <li>1.6</li>
   </supportedVersions>
-  <description><![CDATA[Modifies the starting ship for the Gravship scenario. Exported using Custom Ship Start.]]></description>
+  <description><![CDATA[Modifies the starting ship for the Gravship scenario. Exported using Gravship Export.]]></description>
   <modDependencies>
     <li>
-      <packageId>Arcjc007.CustomShipStart</packageId>
-      <displayName>Custom Ship Start</displayName>
+      <packageId>Arcjc007.GravshipExporter</packageId>
+      <displayName>Gravship Exporter</displayName>
       <steamWorkshopUrl>steam://url/CommunityFilePage/3573188050</steamWorkshopUrl>
       <downloadUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=3573188050</downloadUrl>
     </li>
   </modDependencies>
   <loadAfter>
-    <li>Arcjc007.CustomShipStart</li>
+    <li>Arcjc007.GravshipExporter</li>
   </loadAfter>
 </ModMetaData>";
         }
@@ -518,15 +518,15 @@ $@"<?xml version=""1.0"" encoding=""utf-8""?>
             }
 
             trimmed = trimmed
-                .Replace("<ShipLayoutDefV2>", "<RimworldCustomShipStart.ShipLayoutDefV2>")
-                .Replace("</ShipLayoutDefV2>", "</RimworldCustomShipStart.ShipLayoutDefV2>");
+                .Replace("<ShipLayoutDefV2>", "<GravshipExport.ShipLayoutDefV2>")
+                .Replace("</ShipLayoutDefV2>", "</GravshipExport.ShipLayoutDefV2>");
 
             return $"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<Defs>\n{trimmed}\n</Defs>\n";
         }
 
         private static string SanitizeFolderName(string name)
         {
-            if (string.IsNullOrWhiteSpace(name)) return "CustomShip_Mod";
+            if (string.IsNullOrWhiteSpace(name)) return "GravshipExport_Mod";
             foreach (var c in Path.GetInvalidFileNameChars())
                 name = name.Replace(c, '_');
             return name.Trim();

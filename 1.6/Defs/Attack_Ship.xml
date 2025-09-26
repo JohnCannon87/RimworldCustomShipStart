@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-  <RimworldCustomShipStart.ShipLayoutDefV2>
+  <GravshipExport.ShipLayoutDefV2>
     <rows>
       <li>
         <li>
@@ -4504,5 +4504,5 @@
     <label>Attack Ship</label>
     <descriptionHyperlinks IsNull="True" />
     <ignoreIllegalLabelCharacterConfigError>False</ignoreIllegalLabelCharacterConfigError>
-  </RimworldCustomShipStart.ShipLayoutDefV2>
+  </GravshipExport.ShipLayoutDefV2>
 </Defs>

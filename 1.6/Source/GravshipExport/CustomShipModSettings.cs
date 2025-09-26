@@ -1,6 +1,6 @@
 ﻿using Verse;
 
-namespace RimworldCustomShipStart
+namespace GravshipExport
 {
     public class CustomShipModSettings : ModSettings
     {
@@ -12,7 +12,7 @@ namespace RimworldCustomShipStart
             if (Scribe.mode == LoadSaveMode.Saving && lastUsedShip != null)
             {
                 if (string.IsNullOrEmpty(lastUsedShip.defName))
-                    lastUsedShip.defName = "CustomShip_" + Find.TickManager.TicksGame;
+                    lastUsedShip.defName = "Gravship_" + Find.TickManager.TicksGame;
 
                 if (string.IsNullOrEmpty(lastUsedShip.label))
                     lastUsedShip.label = lastUsedShip.defName;

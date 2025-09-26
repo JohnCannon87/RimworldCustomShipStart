@@ -2,7 +2,7 @@
 using RimWorld;
 using Verse;
 
-namespace RimworldCustomShipStart
+namespace GravshipExport
 {
     [HarmonyPatch(typeof(SketchThing), "IsSpawningBlocked")]
     public static class Patch_SketchThing_IsSpawningBlocked
