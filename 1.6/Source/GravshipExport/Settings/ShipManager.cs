@@ -4,21 +4,21 @@ using System.IO;
 using UnityEngine;
 using Verse;
 
-namespace RimworldCustomShipStart
+namespace GravshipExport
 {
     public static class ShipManager
     {
         private static Dictionary<string, ShipLayoutDefV2> loadedShips = new Dictionary<string, ShipLayoutDefV2>();
 
         private static string ExportFolder =>
-            Path.Combine(GenFilePaths.ConfigFolderPath, "CustomShipStart");
+            Path.Combine(GenFilePaths.ConfigFolderPath, "GravshipExport");
 
         public static IReadOnlyDictionary<string, ShipLayoutDefV2> LoadedShips => loadedShips;
 
         public static void Clear()
         {
             loadedShips.Clear();
-            Log.Message("[CustomShipStart] Cleared loaded ship cache.");
+            Log.Message("[GravshipExport] Cleared loaded ship cache.");
         }
 
         public static void Refresh()
@@ -27,7 +27,7 @@ namespace RimworldCustomShipStart
 
             if (!Directory.Exists(ExportFolder))
             {
-                Log.Warning($"[CustomShipStart] Export folder does not exist: {ExportFolder}");
+                Log.Warning($"[GravshipExport] Export folder does not exist: {ExportFolder}");
                 return;
             }
 
@@ -39,16 +39,16 @@ namespace RimworldCustomShipStart
                     if (ship != null)
                     {
                         loadedShips[Path.GetFileName(file)] = ship;
-                        Log.Message($"[CustomShipStart] Loaded ship from {file} (defName={ship.defName})");
+                        Log.Message($"[GravshipExport] Loaded ship from {file} (defName={ship.defName})");
                     }
                 }
                 catch (Exception ex)
                 {
-                    Log.Error($"[CustomShipStart] Failed to load ship from {file}: {ex}");
+                    Log.Error($"[GravshipExport] Failed to load ship from {file}: {ex}");
                 }
             }
 
-            Log.Message($"[CustomShipStart] Refresh complete. {loadedShips.Count} ships loaded.");
+            Log.Message($"[GravshipExport] Refresh complete. {loadedShips.Count} ships loaded.");
         }
 
     }

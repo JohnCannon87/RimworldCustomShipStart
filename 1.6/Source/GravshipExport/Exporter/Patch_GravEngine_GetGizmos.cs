@@ -4,7 +4,7 @@ using Verse;
 using RimWorld;
 using UnityEngine;
 
-namespace RimworldCustomShipStart
+namespace GravshipExport
 {
     [HarmonyPatch(typeof(Building_GravEngine))]
     [HarmonyPatch("GetGizmos")]

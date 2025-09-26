@@ -1,6 +1,6 @@
 ﻿using Verse;
 
-namespace RimworldCustomShipStart
+namespace GravshipExport
 {
     public class ShipStructureEntry
     {

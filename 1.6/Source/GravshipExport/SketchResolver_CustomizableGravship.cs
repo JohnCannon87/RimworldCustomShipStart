@@ -3,7 +3,7 @@ using RimWorld.SketchGen;
 using Verse;
 using System.Collections.Generic;
 
-namespace RimworldCustomShipStart
+namespace GravshipExport
 {
     public class SketchResolver_CustomizableGravship : SketchResolver
     {
@@ -21,7 +21,7 @@ namespace RimworldCustomShipStart
                 var settings = LoadedModManager.GetMod<CustomShipMod>()?.GetSettings<CustomShipModSettings>();
                 if (settings?.lastUsedShip != null)
                 {
-                    Log.Message("[CustomShipStart] Auto-loading last used ship from settings...");
+                    Log.Message("[GravshipExport] Auto-loading last used ship from settings...");
                     Sketch built = ShipSketchBuilder.BuildFromLayout(settings.lastUsedShip);
                     parms.sketch.Merge(built);
                 }
