@@ -30,7 +30,7 @@ namespace RimworldCustomShipStart
             public ShipLayoutDefV2 Ship;
             public bool IsExported;
             public string ExportFilename; // e.g. "MyShip.xml"
-            public string SourceLabel;    // "Exported" | "Mod: X" | "Built-in"
+            public string SourceLabel;    // "User Created" | "Mod: X" | "Built-in"
         }
 
         public CustomShipMod(ModContentPack content) : base(content)
@@ -170,7 +170,7 @@ namespace RimworldCustomShipStart
         }
 
         // ──────────────────────────────────────────────
-        // Scrollable list of ships (single-row layout, truncation+tooltips)
+        // Scrollable list of ships
         // ──────────────────────────────────────────────
         private void DrawShipList(Rect outRect)
         {
@@ -193,11 +193,11 @@ namespace RimworldCustomShipStart
 
             const float rowHeight = 42f;
             const float rowPad = 4f;
-            const float labelWidth = 300f;
-            const float sourceWidth = 200f;
-            const float infoWidth = 300f;
+            const float deleteBtnWidth = 32f;
             const float applyBtnWidth = 50f;
             const float exportBtnWidth = 50f;
+            const float infoWidth = 300f;
+            const float sourceWidth = 200f;
 
             const int labelMaxChars = 30;
             const int sourceMaxChars = 30;
@@ -223,6 +223,30 @@ namespace RimworldCustomShipStart
                 else if (i % 2 == 1)
                     Widgets.DrawBoxSolid(rowRect, new Color(1f, 1f, 1f, 0.05f));
 
+                float curX = rowRect.x + rowPad;
+
+                // 🗑️ Delete icon button (only for user-created ships)
+                if (item.IsExported)
+                {
+                    var deleteRect = new Rect(curX, rowRect.y + rowPad, deleteBtnWidth, rowHeight - 2 * rowPad);
+                    if (Widgets.ButtonImage(deleteRect, TexButton.Delete))
+                    {
+                        string filename = item.ExportFilename;
+                        Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation(
+                            $"Are you sure you want to delete '{ship.label}'?\n\nThis cannot be undone.",
+                            () =>
+                            {
+                                TryDeleteShipFile(filename);
+                                ShipManager.Refresh();
+                            }));
+                    }
+                    curX += deleteBtnWidth + rowPad;
+                }
+                else
+                {
+                    curX += deleteBtnWidth + rowPad; // Keep layout aligned
+                }
+
                 float rightX = rowRect.xMax - rowPad;
 
                 var applyRect = new Rect(rightX - applyBtnWidth, rowRect.y + rowPad, applyBtnWidth, rowHeight - 2 * rowPad);
@@ -237,14 +261,16 @@ namespace RimworldCustomShipStart
                 var sourceRect = new Rect(rightX - sourceWidth, rowRect.y + rowPad, sourceWidth, rowHeight - 2 * rowPad);
                 rightX -= sourceWidth + rowPad;
 
-                var labelRect = new Rect(rowRect.x + rowPad, rowRect.y + rowPad, rightX - (rowRect.x + rowPad), rowHeight - 2 * rowPad);
+                var labelRect = new Rect(curX, rowRect.y + rowPad, rightX - curX, rowHeight - 2 * rowPad);
 
+                // Label
                 string fullLabel = ship.label ?? ship.defName ?? "Unnamed Ship";
                 string drawLabel = HardCut(fullLabel, labelMaxChars);
                 Widgets.Label(labelRect, drawLabel);
                 if (!string.Equals(fullLabel, drawLabel, StringComparison.Ordinal))
                     TooltipHandler.TipRegion(labelRect, fullLabel);
 
+                // Source
                 string fullSource = item.SourceLabel ?? "";
                 string drawSource = HardCut(fullSource, sourceMaxChars);
                 GUI.color = new Color(0.7f, 0.7f, 0.7f, 1f);
@@ -253,12 +279,14 @@ namespace RimworldCustomShipStart
                 if (!string.Equals(fullSource, drawSource, StringComparison.Ordinal))
                     TooltipHandler.TipRegion(sourceRect, fullSource);
 
+                // Info
                 string fullInfo = GetShipInfo(ship);
                 string drawInfo = HardCut(fullInfo, infoMaxChars);
                 Widgets.Label(infoRect, drawInfo);
                 if (!string.Equals(fullInfo, drawInfo, StringComparison.Ordinal))
                     TooltipHandler.TipRegion(infoRect, fullInfo);
 
+                // Export button
                 if (item.IsExported)
                 {
                     if (Widgets.ButtonText(exportRect, "Export"))
@@ -269,7 +297,7 @@ namespace RimworldCustomShipStart
                     }
                 }
 
-                // ✅ Fixed: Replace useless "Applied" button with non-interactive label
+                // Active / Apply
                 if (isCurrent)
                 {
                     GUI.color = Color.green;
@@ -290,6 +318,24 @@ namespace RimworldCustomShipStart
             }
 
             Widgets.EndScrollView();
+        }
+
+        private void TryDeleteShipFile(string filename)
+        {
+            try
+            {
+                string path = Path.Combine(GenFilePaths.ConfigFolderPath, "CustomShipStart", filename);
+                if (File.Exists(path))
+                {
+                    File.Delete(path);
+                    Messages.Message($"[CustomShipStart] Deleted ship: {filename}", MessageTypeDefOf.PositiveEvent, false);
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error($"[CustomShipStart] Failed to delete ship file {filename}: {ex}");
+                Messages.Message("[CustomShipStart] Failed to delete ship file. See log.", MessageTypeDefOf.RejectInput, false);
+            }
         }
 
         private List<ShipItem> BuildShipRows()
@@ -338,7 +384,6 @@ namespace RimworldCustomShipStart
 
             return rows.OrderBy(r => r.Ship?.label).ToList();
         }
-
 
         private string CurrentSelectionKey()
         {
@@ -472,14 +517,12 @@ $@"<?xml version=""1.0"" encoding=""utf-8""?>
                 if (idx >= 0) trimmed = trimmed.Substring(idx + 2).Trim();
             }
 
-            // Replace root node if it’s just <ShipLayoutDefV2>
             trimmed = trimmed
                 .Replace("<ShipLayoutDefV2>", "<RimworldCustomShipStart.ShipLayoutDefV2>")
                 .Replace("</ShipLayoutDefV2>", "</RimworldCustomShipStart.ShipLayoutDefV2>");
 
             return $"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<Defs>\n{trimmed}\n</Defs>\n";
         }
-
 
         private static string SanitizeFolderName(string name)
         {
