@@ -9,7 +9,7 @@ namespace GravshipExport
     {
         static HarmonyInit()
         {
-            var harmony = new Harmony("com.arcjc007.customshipstart");
+            var harmony = new Harmony("com.arcjc007.gravshipexporter");
             harmony.PatchAll();
         }
     }

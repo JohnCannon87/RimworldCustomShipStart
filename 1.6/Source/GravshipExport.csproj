@@ -89,16 +89,13 @@
     <Compile Include="GravshipExport\HarmonyInit.cs" />
     <Compile Include="GravshipExport\HarmonyPatchCustomShip.cs" />
     <Compile Include="GravshipExport\Importer\ShipSketchBuilder.cs" />
-    <Compile Include="GravshipExport\LegendSymbols.cs" />
     <Compile Include="GravshipExport\Patch_PlaceWorker_ShowTurretRadius.cs" />
     <Compile Include="GravshipExport\Patch_SketchThing_Spawn.cs" />
     <Compile Include="GravshipExport\Patch_Sketch_GetSuggestedRoofCells_Postfix.cs" />
     <Compile Include="GravshipExport\Settings\ShipManager.cs" />
     <Compile Include="GravshipExport\ShipCell.cs" />
     <Compile Include="GravshipExport\ShipLayoutDefV2.cs" />
-    <Compile Include="GravshipExport\ShipStructureEntry.cs" />
     <Compile Include="GravshipExport\ShipThingEntry.cs" />
-    <Compile Include="GravshipExport\ShipTile.cs" />
     <Compile Include="GravshipExport\SketchResolver_CustomizableGravship.cs" />
     <Compile Include="MapComponent_Overlay.cs" />
     <Compile Include="ResourceBank.cs" />
