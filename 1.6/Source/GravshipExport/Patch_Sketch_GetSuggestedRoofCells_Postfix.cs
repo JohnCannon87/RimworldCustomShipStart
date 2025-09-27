@@ -8,7 +8,7 @@ public static class Patch_Sketch_GetSuggestedRoofCells_Prefix
 {
     static bool Prefix(Sketch __instance, ref IEnumerable<IntVec3> __result)
     {
-        //jcLog.Message("[CoolerRoofPatch] Prefix called for GetSuggestedRoofCells.");
+        //jc//jcLog.Message("[CoolerRoofPatch] Prefix called for GetSuggestedRoofCells.");
 
         if (__instance.Empty)
         {
@@ -32,7 +32,7 @@ public static class Patch_Sketch_GetSuggestedRoofCells_Prefix
                 if (sketchThing.def == ThingDefOf.Cooler)
                 {
                     isRoofHolder = true;
-                    //jcLog.Message($"[CoolerRoofPatch] Cooler at {c} treated as roof holder.");
+                    //jc//jcLog.Message($"[CoolerRoofPatch] Cooler at {c} treated as roof holder.");
                     break;
                 }
             }
@@ -77,7 +77,7 @@ public static class Patch_Sketch_GetSuggestedRoofCells_Prefix
                         (j == 8 || AnyRoofHolderAt(intVec)))
                     {
                         tmpYieldedSuggestedRoofCells.Add(intVec);
-                        //jcLog.Message($"[CoolerRoofPatch] Yielding roof cell: {intVec}");
+                        //jc//jcLog.Message($"[CoolerRoofPatch] Yielding roof cell: {intVec}");
                         result.Add(intVec);
                     }
                 }

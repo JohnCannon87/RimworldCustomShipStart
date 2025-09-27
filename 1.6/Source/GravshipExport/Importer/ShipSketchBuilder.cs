@@ -12,8 +12,8 @@ namespace GravshipExport
     /// </summary>
     public static class ShipSketchBuilder
     {
-        private const bool LogInfo = true;
-        private const bool LogWarn = true;
+        private const bool LogInfo = false;
+        private const bool LogWarn = false;
 
         /// <summary>
         /// Convert a ShipLayoutDefV2 into a Sketch.

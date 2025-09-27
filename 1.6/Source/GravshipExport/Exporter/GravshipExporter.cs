@@ -14,7 +14,7 @@ namespace GravshipExport
         {
             try
             {
-                Log.Message("[GravshipExport] ExportV2 started.");
+                //jcLog.Message("[GravshipExport] ExportV2 started.");
 
                 var layout = BuildLayout(engine);
                 if (layout == null)
@@ -37,7 +37,7 @@ namespace GravshipExport
                 string file = Path.Combine(folder, layout.defName + ".xml");
                 DirectXmlSaver.SaveDataObject(layout, file);
 
-                Log.Message($"[GravshipExport] ExportV2 complete! Saved to {file}");
+                //jcLog.Message($"[GravshipExport] ExportV2 complete! Saved to {file}");
             }
             catch (Exception ex)
             {
@@ -63,7 +63,7 @@ namespace GravshipExport
             int width = maxX - minX + 1;
             int height = maxZ - minZ + 1;
 
-            Log.Message($"[GravshipExport] ExportV2 bounding box: {width}x{height} (x[{minX}-{maxX}], z[{minZ}-{maxZ}])");
+            //jcLog.Message($"[GravshipExport] ExportV2 bounding box: {width}x{height} (x[{minX}-{maxX}], z[{minZ}-{maxZ}])");
 
             var rows = new List<List<ShipCell>>();
 
@@ -121,10 +121,10 @@ namespace GravshipExport
 
                         shipCell.things.Add(entry);
 
-                        Log.Message($"[GravshipExport] Exported thing {thing.def.defName} " +
+                        /*Log.Message($"[GravshipExport] Exported thing {thing.def.defName} " +
                                     $"at world=({thing.Position.x},{thing.Position.z}) " +
                                     $"grid=({x - minX},{z - minZ}) " +
-                                    $"size={thing.def.size} rot={thing.Rotation.AsInt} stuff={stuffName ?? "null"}");
+                                    $"size={thing.def.size} rot={thing.Rotation.AsInt} stuff={stuffName ?? "null"}");*/
                     }
 
                     // 🔎 Smart foundation inference

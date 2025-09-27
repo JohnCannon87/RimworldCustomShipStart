@@ -23,7 +23,7 @@ namespace GravshipExport
         private ShipItem exportTarget;
 
         // Load/save logs only (no draw-loop spam)
-        private const bool DebugLogs = true;
+        private const bool DebugLogs = false;
 
         private sealed class ShipItem
         {

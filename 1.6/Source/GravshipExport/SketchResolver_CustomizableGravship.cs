@@ -21,7 +21,7 @@ namespace GravshipExport
                 var settings = LoadedModManager.GetMod<GravshipExportMod>()?.GetSettings<GravshipExportModSettings>();
                 if (settings?.lastUsedShip != null)
                 {
-                    Log.Message("[GravshipExport] Auto-loading last used ship from settings...");
+                    //jcLog.Message("[GravshipExport] Auto-loading last used ship from settings...");
                     Sketch built = ShipSketchBuilder.BuildFromLayout(settings.lastUsedShip);
                     parms.sketch.Merge(built);
                 }

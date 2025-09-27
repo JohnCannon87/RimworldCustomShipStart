@@ -18,7 +18,7 @@ namespace GravshipExport
         public static void Clear()
         {
             loadedShips.Clear();
-            Log.Message("[GravshipExport] Cleared loaded ship cache.");
+            //jcLog.Message("[GravshipExport] Cleared loaded ship cache.");
         }
 
         public static void Refresh()
@@ -39,7 +39,7 @@ namespace GravshipExport
                     if (ship != null)
                     {
                         loadedShips[Path.GetFileName(file)] = ship;
-                        Log.Message($"[GravshipExport] Loaded ship from {file} (defName={ship.defName})");
+                        //jcLog.Message($"[GravshipExport] Loaded ship from {file} (defName={ship.defName})");
                     }
                 }
                 catch (Exception ex)
@@ -48,7 +48,7 @@ namespace GravshipExport
                 }
             }
 
-            Log.Message($"[GravshipExport] Refresh complete. {loadedShips.Count} ships loaded.");
+            //jcLog.Message($"[GravshipExport] Refresh complete. {loadedShips.Count} ships loaded.");
         }
 
     }
