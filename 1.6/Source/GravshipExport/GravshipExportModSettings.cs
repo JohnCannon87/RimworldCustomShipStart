@@ -2,7 +2,7 @@
 
 namespace GravshipExport
 {
-    public class CustomShipModSettings : ModSettings
+    public class GravshipExportModSettings : ModSettings
     {
         public ShipLayoutDefV2 lastUsedShip;
 

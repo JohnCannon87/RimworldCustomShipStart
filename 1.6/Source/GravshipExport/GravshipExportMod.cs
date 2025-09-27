@@ -9,9 +9,9 @@ using System.Security;
 
 namespace GravshipExport
 {
-    public class CustomShipMod : Mod
+    public class GravshipExportMod : Mod
     {
-        private CustomShipModSettings settings;
+        private GravshipExportModSettings settings;
 
         private Vector2 scrollPos;
         private string searchText = string.Empty;
@@ -33,9 +33,9 @@ namespace GravshipExport
             public string SourceLabel;    // "User Created" | "Mod: X" | "Built-in"
         }
 
-        public CustomShipMod(ModContentPack content) : base(content)
+        public GravshipExportMod(ModContentPack content) : base(content)
         {
-            settings = GetSettings<CustomShipModSettings>();
+            settings = GetSettings<GravshipExportModSettings>();
             didInitialRefresh = false;
         }
 

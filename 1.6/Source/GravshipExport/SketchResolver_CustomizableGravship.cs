@@ -18,7 +18,7 @@ namespace GravshipExport
             if (ModLister.CheckOdyssey("Ancient launch pad"))
             {
                 // If no ship was explicitly provided, try to load the last one from mod settings
-                var settings = LoadedModManager.GetMod<CustomShipMod>()?.GetSettings<CustomShipModSettings>();
+                var settings = LoadedModManager.GetMod<GravshipExportMod>()?.GetSettings<GravshipExportModSettings>();
                 if (settings?.lastUsedShip != null)
                 {
                     Log.Message("[GravshipExport] Auto-loading last used ship from settings...");

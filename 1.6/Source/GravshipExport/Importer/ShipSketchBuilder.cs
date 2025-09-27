@@ -120,6 +120,50 @@ namespace GravshipExport
             if (LogInfo)
                 Log.Message($"[GravshipExport] BuildFromLayout: finished. Structural cells={cellCount}, things added={thingCount}.");
 
+            // ─────────────────────────────────────────────
+            // Add orbital platform perimeter following ship shape
+            // ─────────────────────────────────────────────
+            var mechanoidPlatform = DefDatabase<TerrainDef>.GetNamedSilentFail("MechanoidPlatform");
+            if (mechanoidPlatform != null)
+            {
+                // Iterate a slightly larger region to include perimeter
+                for (int z = -1; z <= layout.height; z++)
+                {
+                    for (int x = -1; x <= layout.width; x++)
+                    {
+                        var pos = new IntVec3(x, 0, z);
+
+                        // Skip if already part of ship
+                        bool isShipCell = sketch.TerrainAt(pos) != null || sketch.Things.Exists(t => t.pos == pos);
+                        if (isShipCell) continue;
+
+                        // Check 4 neighbors for a ship cell
+                        bool adjacentToShip =
+                            (sketch.TerrainAt(new IntVec3(x + 1, 0, z)) != null) ||
+                            (sketch.TerrainAt(new IntVec3(x - 1, 0, z)) != null) ||
+                            (sketch.TerrainAt(new IntVec3(x, 0, z + 1)) != null) ||
+                            (sketch.TerrainAt(new IntVec3(x, 0, z - 1)) != null) ||
+                            (sketch.Things.Exists(t => t.pos == new IntVec3(x + 1, 0, z))) ||
+                            (sketch.Things.Exists(t => t.pos == new IntVec3(x - 1, 0, z))) ||
+                            (sketch.Things.Exists(t => t.pos == new IntVec3(x, 0, z + 1))) ||
+                            (sketch.Things.Exists(t => t.pos == new IntVec3(x, 0, z - 1)));
+
+                        if (adjacentToShip)
+                        {
+                            sketch.AddTerrain(mechanoidPlatform, pos);
+                            if (LogInfo)
+                                Log.Message($"[GravshipExport] Added MechanoidPlatform perimeter at {pos}");
+                        }
+                    }
+                }
+            }
+            else
+            {
+                Log.Warning("[GravshipExport] Could not find TerrainDef 'MechanoidPlatform' — perimeter not added.");
+            }
+
+
+
             return sketch;
         }
 

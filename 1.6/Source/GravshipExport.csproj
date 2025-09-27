@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -81,11 +81,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="GravshipExport\CustomShipMod.cs" />
-    <Compile Include="GravshipExport\CustomShipModSettings.cs" />
+    <Compile Include="GravshipExport\GravshipExportMod.cs" />
+    <Compile Include="GravshipExport\GravshipExportModSettings.cs" />
     <Compile Include="GravshipExport\Exporter\Dialog_NameShip.cs" />
     <Compile Include="GravshipExport\Exporter\GravshipExporter.cs" />
-    <Compile Include="GravshipExport\Exporter\LayoutFileUtility.cs" />
     <Compile Include="GravshipExport\Exporter\Patch_GravEngine_GetGizmos.cs" />
     <Compile Include="GravshipExport\HarmonyInit.cs" />
     <Compile Include="GravshipExport\HarmonyPatchCustomShip.cs" />
@@ -96,7 +95,6 @@
     <Compile Include="GravshipExport\Patch_Sketch_GetSuggestedRoofCells_Postfix.cs" />
     <Compile Include="GravshipExport\Settings\ShipManager.cs" />
     <Compile Include="GravshipExport\ShipCell.cs" />
-    <Compile Include="GravshipExport\ShipLayoutDef.cs" />
     <Compile Include="GravshipExport\ShipLayoutDefV2.cs" />
     <Compile Include="GravshipExport\ShipStructureEntry.cs" />
     <Compile Include="GravshipExport\ShipThingEntry.cs" />
@@ -125,7 +123,7 @@
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties BuildVersion_UpdateFileVersion="True" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_BuildVersioningStyle="None.None.Increment.TimeStamp" BuildVersion_StartDate="2000/1/1" />
+      <UserProperties BuildVersion_StartDate="2000/1/1" BuildVersion_BuildVersioningStyle="None.None.Increment.TimeStamp" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_UpdateFileVersion="True" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>
