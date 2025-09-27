@@ -3,6 +3,6 @@
   <SketchResolverDef>
     <defName>CustomGravship</defName>
     <isRoot>true</isRoot>
-    <resolver Class="RimworldCustomShipStart.SketchResolver_CustomizableGravship" />
+    <resolver Class="GravshipExport.SketchResolver_CustomizableGravship" />
   </SketchResolverDef>
 </Defs>

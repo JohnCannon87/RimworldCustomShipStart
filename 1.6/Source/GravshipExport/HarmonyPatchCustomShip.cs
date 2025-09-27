@@ -8,7 +8,7 @@ using RimWorld;
 using RimWorld.SketchGen;
 using Verse;
 
-namespace RimworldCustomShipStart
+namespace GravshipExport
 {
     [HarmonyPatch(typeof(ScenPart_PlayerPawnsArriveMethod), "DoGravship")]
     public static class HarmonyPatchCustomShip

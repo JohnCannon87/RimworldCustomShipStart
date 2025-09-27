@@ -7,8 +7,8 @@
     <ProjectGuid>{D7D21B4A-1DA7-41D8-B202-C58CA8FA62AA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RimworldCustomShipStart</RootNamespace>
-    <AssemblyName>RimworldCustomShipStart</AssemblyName>
+    <RootNamespace>GravshipExport</RootNamespace>
+    <AssemblyName>GravshipExport</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -81,16 +81,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="CustomShipStart\HarmonyInit.cs" />
-    <Compile Include="CustomShipStart\HarmonyPatchCustomShip.cs" />
-    <Compile Include="CustomShipStart\Patch_PlaceWorker_ShowTurretRadius.cs" />
-    <Compile Include="CustomShipStart\Patch_SketchThing_Spawn.cs" />
-    <Compile Include="CustomShipStart\Patch_Sketch_GetSuggestedRoofCells_Postfix.cs" />
-    <Compile Include="CustomShipStart\ShipLayoutDef.cs" />
-    <Compile Include="CustomShipStart\ShipStructureEntry.cs" />
-    <Compile Include="CustomShipStart\ShipThingEntry.cs" />
-    <Compile Include="CustomShipStart\ShipTile.cs" />
-    <Compile Include="CustomShipStart\SketchResolver_CustomizableGravship .cs" />
+    <Compile Include="GravshipExport\GravshipExportMod.cs" />
+    <Compile Include="GravshipExport\GravshipExportModSettings.cs" />
+    <Compile Include="GravshipExport\Exporter\Dialog_NameShip.cs" />
+    <Compile Include="GravshipExport\Exporter\GravshipExporter.cs" />
+    <Compile Include="GravshipExport\Exporter\Patch_GravEngine_GetGizmos.cs" />
+    <Compile Include="GravshipExport\HarmonyInit.cs" />
+    <Compile Include="GravshipExport\HarmonyPatchCustomShip.cs" />
+    <Compile Include="GravshipExport\Importer\ShipSketchBuilder.cs" />
+    <Compile Include="GravshipExport\LegendSymbols.cs" />
+    <Compile Include="GravshipExport\Patch_PlaceWorker_ShowTurretRadius.cs" />
+    <Compile Include="GravshipExport\Patch_SketchThing_Spawn.cs" />
+    <Compile Include="GravshipExport\Patch_Sketch_GetSuggestedRoofCells_Postfix.cs" />
+    <Compile Include="GravshipExport\Settings\ShipManager.cs" />
+    <Compile Include="GravshipExport\ShipCell.cs" />
+    <Compile Include="GravshipExport\ShipLayoutDefV2.cs" />
+    <Compile Include="GravshipExport\ShipStructureEntry.cs" />
+    <Compile Include="GravshipExport\ShipThingEntry.cs" />
+    <Compile Include="GravshipExport\ShipTile.cs" />
+    <Compile Include="GravshipExport\SketchResolver_CustomizableGravship.cs" />
     <Compile Include="MapComponent_Overlay.cs" />
     <Compile Include="ResourceBank.cs" />
     <Compile Include="EnumerableExtensions.cs" />
@@ -114,7 +123,7 @@
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties BuildVersion_UpdateFileVersion="True" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_BuildVersioningStyle="None.None.Increment.TimeStamp" BuildVersion_StartDate="2000/1/1" />
+      <UserProperties BuildVersion_StartDate="2000/1/1" BuildVersion_BuildVersioningStyle="None.None.Increment.TimeStamp" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_UpdateFileVersion="True" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>
