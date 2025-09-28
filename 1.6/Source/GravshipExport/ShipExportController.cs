@@ -124,29 +124,30 @@ namespace GravshipExport
 
         private static string BuildAboutXml(string modName, string author, string packageId)
         {
-            return
-@$"<?xml version=\"1.0\" encoding=\"utf-8\"?>
-<ModMetaData>
-  <name>{SecurityElement.Escape(modName)}</name>
-  <author>{SecurityElement.Escape(author)}</author>
-  <packageId>{SecurityElement.Escape(packageId)}</packageId>
-  <supportedVersions>
-    <li>1.6</li>
-  </supportedVersions>
-  <description><![CDATA[Modifies the starting ship for the Gravship scenario. Exported using Gravship Export.]]></description>
-  <modDependencies>
-    <li>
-      <packageId>Arcjc007.GravshipExporter</packageId>
-      <displayName>Gravship Exporter</displayName>
-      <steamWorkshopUrl>steam://url/CommunityFilePage/3573188050</steamWorkshopUrl>
-      <downloadUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=3573188050</downloadUrl>
-    </li>
-  </modDependencies>
-  <loadAfter>
-    <li>Arcjc007.GravshipExporter</li>
-  </loadAfter>
-</ModMetaData>";
+            return "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" +
+                   "<ModMetaData>\n" +
+                   $"  <name>{SecurityElement.Escape(modName)}</name>\n" +
+                   $"  <author>{SecurityElement.Escape(author)}</author>\n" +
+                   $"  <packageId>{SecurityElement.Escape(packageId)}</packageId>\n" +
+                   "  <supportedVersions>\n" +
+                   "    <li>1.6</li>\n" +
+                   "  </supportedVersions>\n" +
+                   "  <description><![CDATA[Modifies the starting ship for the Gravship scenario. " +
+                   "Exported using Gravship Export.]]></description>\n" +
+                   "  <modDependencies>\n" +
+                   "    <li>\n" +
+                   "      <packageId>Arcjc007.GravshipExporter</packageId>\n" +
+                   "      <displayName>Gravship Exporter</displayName>\n" +
+                   "      <steamWorkshopUrl>steam://url/CommunityFilePage/3573188050</steamWorkshopUrl>\n" +
+                   "      <downloadUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=3573188050</downloadUrl>\n" +
+                   "    </li>\n" +
+                   "  </modDependencies>\n" +
+                   "  <loadAfter>\n" +
+                   "    <li>Arcjc007.GravshipExporter</li>\n" +
+                   "  </loadAfter>\n" +
+                   "</ModMetaData>";
         }
+
 
         private static string WrapInDefs(string inner)
         {

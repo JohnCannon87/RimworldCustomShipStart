@@ -1,38 +1,26 @@
+// ShipSelectionHelper.cs
+using System;
 using System.Collections.Generic;
-using Verse;
 
 namespace GravshipExport
 {
     internal static class ShipSelectionHelper
     {
-        public static string GetCurrentSelectionKey(GravshipExportModSettings settings, Dictionary<string, ShipLayoutDefV2> loadedShips)
+        /// <summary>
+        /// Always return the canonical selection key: the ship's defName.
+        /// </summary>
+        public static string GetCurrentSelectionKey(GravshipExportModSettings settings, IReadOnlyDictionary<string, ShipLayoutDefV2> _)
         {
-            if (settings?.lastUsedShip == null)
-            {
-                return null;
-            }
+            var defName = settings?.lastUsedShip?.defName;
+            return string.IsNullOrEmpty(defName) ? null : defName;
+        }
 
-            string defName = settings.lastUsedShip.defName;
-            if (loadedShips != null)
-            {
-                foreach (var kvp in loadedShips)
-                {
-                    if (ReferenceEquals(kvp.Value, settings.lastUsedShip))
-                    {
-                        return kvp.Key;
-                    }
-                }
-
-                foreach (var kvp in loadedShips)
-                {
-                    if (kvp.Value?.defName == defName)
-                    {
-                        return kvp.Key;
-                    }
-                }
-            }
-
-            return defName;
+        public static bool IsSelected(string currentSelectionKey, ShipListItem item)
+        {
+            if (string.IsNullOrEmpty(currentSelectionKey)) return false;
+            var defName = item?.Ship?.defName;
+            return !string.IsNullOrEmpty(defName)
+                   && string.Equals(defName, currentSelectionKey, StringComparison.OrdinalIgnoreCase);
         }
     }
 }

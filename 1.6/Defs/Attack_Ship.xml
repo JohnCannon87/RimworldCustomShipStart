@@ -4503,6 +4503,7 @@
     <defName>Attack_Ship</defName>
     <label>Attack Ship</label>
     <descriptionHyperlinks IsNull="True" />
+    <description>Lock S-foils in attack position ! Get your raiding dreams started early, what she lacks in comfort and defensive capability she more than makes up for in firepower and range. Has a small bedroom, heaters and oxygen pumps, enough power for everything, a fuel optimiser, a pilot subcore and 4 auto cannon turrets, perfect for wrecking the day of any innocent tribal village on your first day.</description>
     <ignoreIllegalLabelCharacterConfigError>False</ignoreIllegalLabelCharacterConfigError>
   </GravshipExport.ShipLayoutDefV2>
 </Defs>

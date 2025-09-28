@@ -59,6 +59,9 @@
       <HintPath>D:\Games\Steam\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Hjg.Pngcs, Version=1.1.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hjg.Pngcs.1.1.4\lib\netstandard2.0\Hjg.Pngcs.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -81,6 +84,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="GravshipExport\Exporter\Dialog_ShipExportHelp.cs" />
+    <Compile Include="GravshipExport\Exporter\ShipPreviewRenderer.cs" />
+    <Compile Include="GravshipExport\ExportPromptView.cs" />
     <Compile Include="GravshipExport\GravshipExportMod.cs" />
     <Compile Include="GravshipExport\GravshipExportModSettings.cs" />
     <Compile Include="GravshipExport\Exporter\Dialog_NameShip.cs" />
@@ -89,14 +95,25 @@
     <Compile Include="GravshipExport\HarmonyInit.cs" />
     <Compile Include="GravshipExport\HarmonyPatchCustomShip.cs" />
     <Compile Include="GravshipExport\Importer\ShipSketchBuilder.cs" />
+    <Compile Include="GravshipExport\ModHeaderView.cs" />
     <Compile Include="GravshipExport\Patch_PlaceWorker_ShowTurretRadius.cs" />
     <Compile Include="GravshipExport\Patch_SketchThing_Spawn.cs" />
     <Compile Include="GravshipExport\Patch_Sketch_GetSuggestedRoofCells_Postfix.cs" />
     <Compile Include="GravshipExport\Settings\ShipManager.cs" />
     <Compile Include="GravshipExport\ShipCell.cs" />
+    <Compile Include="GravshipExport\ShipExportController.cs" />
+    <Compile Include="GravshipExport\ShipInfoFormatter.cs" />
     <Compile Include="GravshipExport\ShipLayoutDefV2.cs" />
+    <Compile Include="GravshipExport\ShipListBuilder.cs" />
+    <Compile Include="GravshipExport\ShipListCallbacks.cs" />
+    <Compile Include="GravshipExport\ShipListItem.cs" />
+    <Compile Include="GravshipExport\ShipListView.cs" />
+    <Compile Include="GravshipExport\ShipPreviewUtility.cs" />
+    <Compile Include="GravshipExport\ShipRowDrawer.cs" />
+    <Compile Include="GravshipExport\ShipSelectionHelper.cs" />
     <Compile Include="GravshipExport\ShipThingEntry.cs" />
     <Compile Include="GravshipExport\SketchResolver_CustomizableGravship.cs" />
+    <Compile Include="GravshipExport\StringUtilities.cs" />
     <Compile Include="MapComponent_Overlay.cs" />
     <Compile Include="ResourceBank.cs" />
     <Compile Include="EnumerableExtensions.cs" />
@@ -120,7 +137,7 @@
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties BuildVersion_StartDate="2000/1/1" BuildVersion_BuildVersioningStyle="None.None.Increment.TimeStamp" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_UpdateFileVersion="True" />
+      <UserProperties BuildVersion_UpdateFileVersion="True" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_BuildVersioningStyle="None.None.Increment.TimeStamp" BuildVersion_StartDate="2000/1/1" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

@@ -879,9 +879,10 @@
   <height>10</height>
   <gravEngineX>4</gravEngineX>
   <gravEngineZ>7</gravEngineZ>
-  <defName>Odyssey_Original_Ship_</defName>
+  <defName>Odyssey_Original_Ship</defName>
   <label>Odyssey Original Ship </label>
   <descriptionHyperlinks IsNull="True" />
+  <description>The original ship design from the DLC, no changes, why interfer with perfection ?</description>
   <ignoreIllegalLabelCharacterConfigError>False</ignoreIllegalLabelCharacterConfigError>
 </GravshipExport.ShipLayoutDefV2>
 </Defs>

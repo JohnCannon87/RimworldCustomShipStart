@@ -1509,6 +1509,7 @@
   <defName>Small_Starting_Ship</defName>
   <label>Small Starting Ship</label>
   <descriptionHyperlinks IsNull="True" />
+  <description>The original ship, but with a bit "more", a few more shelves for storage, a battery for helping power the heater and turret for defense, the perfect start for your Rimworld journey !</description>
   <ignoreIllegalLabelCharacterConfigError>False</ignoreIllegalLabelCharacterConfigError>
 </GravshipExport.ShipLayoutDefV2>
 </Defs>

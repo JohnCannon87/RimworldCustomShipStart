@@ -10,7 +10,7 @@ namespace GravshipExport
 {
     public static class GravshipExporter
     {
-        public static void Export(Building_GravEngine engine, string customName = null)
+        public static void Export(Building_GravEngine engine, string customName = null, string customDescription = null)
         {
             try
             {
@@ -30,12 +30,44 @@ namespace GravshipExport
                     layout.label = customName;
                 }
 
+                // ✅ Set custom description if provided
+                if (!string.IsNullOrWhiteSpace(customDescription))
+                {
+                    layout.description = customDescription.Trim();
+                }
+
+
                 string folder = Path.Combine(GenFilePaths.ConfigFolderPath, "GravshipExport");
                 if (!Directory.Exists(folder))
                     Directory.CreateDirectory(folder);
 
                 string file = Path.Combine(folder, layout.defName + ".xml");
+                string previewFile = Path.Combine(folder, layout.defName + ".png");
                 DirectXmlSaver.SaveDataObject(layout, file);
+                //ShipPreviewRenderer.Capture(engine, layout, previewFile);
+
+                // ✅ Show helpful popup guide after successful export
+                string configPath = Path.Combine(GenFilePaths.ConfigFolderPath, "GravshipExport");
+
+                /*string messageText =
+                    $"✅ Ship \"{layout.label}\" was exported successfully!\n\n" +
+                    "📸 To add a preview image:\n\n" +
+                    "1. Open the following folder on your system:\n" +
+                    $"   {configPath}\n\n" +
+                    "2. Place a PNG file with the **exact same name** as your exported XML file in that folder.\n" +
+                    "   Example:\n" +
+                    $"   {layout.defName}.xml\n" +
+                    $"   {layout.defName}.png\n\n" +
+                    "💡 Recommended size: ~512×512 or larger.\n\n" +
+                    "⚠️ We’re sorry this isn’t automated yet — we’re actively working on an update that will capture ship previews automatically.";
+
+                Find.WindowStack.Add(new Dialog_MessageBox(
+                    messageText,
+                    "OK"
+                ));*/
+
+                // ✅ Show helpful popup guide with clickable folder button
+                Find.WindowStack.Add(new Dialog_ShipExportHelp(configPath, layout.defName));
 
                 //jcLog.Message($"[GravshipExport] ExportV2 complete! Saved to {file}");
             }

@@ -4810,6 +4810,7 @@
   <defName>Advanced_Starter_Ship</defName>
   <label>Advanced Starter Ship</label>
   <descriptionHyperlinks IsNull="True" />
+  <description>Adds multiple new rooms, A Bedroom, Dining Room, Freezer/Butchers, Kitchen, 2 storage/engine rooms and a central room cockpit, includes enough power for everything (including Oxygen pumps and heaters) and 3 small turrets for defence, the ultimate in starting luxury !</description>
   <ignoreIllegalLabelCharacterConfigError>False</ignoreIllegalLabelCharacterConfigError>
 </GravshipExport.ShipLayoutDefV2>
 </Defs>
