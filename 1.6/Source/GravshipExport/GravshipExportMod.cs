@@ -1,4 +1,3 @@
-using System;
 using System.Linq;
 using UnityEngine;
 using Verse;
@@ -16,10 +15,6 @@ namespace GravshipExport
         private GravshipExportModSettings settings;
         private string searchText = string.Empty;
         private bool didInitialRefresh;
-
-        private bool exportPromptOpen;
-        private string exportNameBuffer = string.Empty;
-        private ShipListItem exportTarget;
 
         public GravshipExportMod(ModContentPack content) : base(content)
         {
@@ -57,19 +52,7 @@ namespace GravshipExport
             var headerRect = new Rect(inRect.x, inRect.y, inRect.width, 112f);
             ModHeaderView.Draw(headerRect, settings.lastUsedShip, ref searchText);
 
-            float promptHeight = exportPromptOpen ? 64f : 0f;
-            if (exportPromptOpen)
-            {
-                var promptRect = new Rect(inRect.x, headerRect.yMax + 4f, inRect.width, promptHeight);
-                ExportPromptView.Draw(
-                    promptRect,
-                    exportTarget,
-                    ref exportNameBuffer,
-                    HandleExportCreation,
-                    CloseExportPrompt);
-            }
-
-            var listRect = new Rect(inRect.x, headerRect.yMax + 8f + promptHeight, inRect.width, inRect.height - headerRect.height - 8f - promptHeight);
+            var listRect = new Rect(inRect.x, headerRect.yMax + 8f, inRect.width, inRect.height - headerRect.height - 8f);
             DrawShipList(listRect);
         }
 
@@ -150,27 +133,15 @@ namespace GravshipExport
             if (item?.Ship == null)
                 return;
 
-            exportTarget = item;
-            exportNameBuffer = $"Gravship_{(item.Ship.label ?? item.Ship.defName ?? "NewShip")}";
-            exportPromptOpen = true;
-        }
+            string suggestedName = $"Gravship_{(item.Ship.label ?? item.Ship.defName ?? "NewShip")}";
 
-        private void HandleExportCreation()
-        {
-            if (exportTarget?.Ship == null)
-                return;
-
-            if (string.IsNullOrWhiteSpace(exportNameBuffer))
-                return;
-
-            exportController.ExportShipAsMod(exportTarget.Ship, exportNameBuffer, CloseExportPrompt);
-        }
-
-        private void CloseExportPrompt()
-        {
-            exportPromptOpen = false;
-            exportTarget = null;
-            exportNameBuffer = string.Empty;
+            Find.WindowStack.Add(new Dialog_ExportModName(
+                item.Ship,
+                suggestedName,
+                modName =>
+                {
+                    exportController.ExportShipAsMod(item.Ship, modName, null);
+                }));
         }
 
     }

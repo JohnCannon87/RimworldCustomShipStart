@@ -220,10 +220,12 @@ namespace GravshipExport
                 callbacks?.ApplyRequested?.Invoke(item);
             }
 
-            if (Widgets.ButtonText(exportRect, "Export as Mod"))
+            // Only show "Export as Mod" if this is a user-exported ship (not built-in or from a mod)
+            if (item.IsExported && Widgets.ButtonText(exportRect, "Export as Mod"))
             {
                 callbacks?.ExportRequested?.Invoke(item);
             }
+
 
             // Only show delete if this is an exported ship
             if (item.IsExported && Widgets.ButtonText(deleteRect, "Delete"))

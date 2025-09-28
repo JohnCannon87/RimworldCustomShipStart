@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.IO;
 using System.Linq;
 using System.Security;
@@ -21,12 +21,26 @@ namespace GravshipExport
         {
             try
             {
-                string path = Path.Combine(GenFilePaths.ConfigFolderPath, "GravshipExport", filename);
-                if (File.Exists(path))
+                string baseDir = Path.Combine(GenFilePaths.ConfigFolderPath, "GravshipExport");
+
+                // Delete the XML
+                string xmlPath = Path.Combine(baseDir, filename);
+                if (File.Exists(xmlPath))
                 {
-                    File.Delete(path);
-                    Messages.Message($"[GravshipExport] Deleted ship: {filename}", MessageTypeDefOf.PositiveEvent, false);
+                    File.Delete(xmlPath);
+                    if (debugLogs) Log.Message($"[GravshipExport] Deleted ship XML: {xmlPath}");
                 }
+
+                // Try deleting the matching PNG (same name, .png extension)
+                string pngName = Path.ChangeExtension(filename, ".png");
+                string pngPath = Path.Combine(baseDir, pngName);
+                if (File.Exists(pngPath))
+                {
+                    File.Delete(pngPath);
+                    if (debugLogs) Log.Message($"[GravshipExport] Deleted matching preview: {pngPath}");
+                }
+
+                Messages.Message($"[GravshipExport] Deleted ship: {Path.GetFileNameWithoutExtension(filename)}", MessageTypeDefOf.PositiveEvent, false);
             }
             catch (Exception ex)
             {
@@ -34,6 +48,7 @@ namespace GravshipExport
                 Messages.Message("[GravshipExport] Failed to delete ship file. See log.", MessageTypeDefOf.RejectInput, false);
             }
         }
+
 
         public void ExportShipAsMod(ShipLayoutDefV2 ship, string userModName, Action onComplete)
         {
@@ -111,7 +126,47 @@ namespace GravshipExport
                 string defPath = Path.Combine(defsDir, defFileName);
                 File.WriteAllText(defPath, wrapped);
 
-                Messages.Message($"[GravshipExport] Exported '{ship.label ?? ship.defName}' as mod:\n{modFolder}", MessageTypeDefOf.PositiveEvent, false);
+                // --- Handle preview image ---
+                string previewSource = Path.Combine(
+                    GenFilePaths.ConfigFolderPath,
+                    "GravshipExport",
+                    $"{ship.defName}.png"
+                );
+
+                string texturesDir = Path.Combine(modFolder, "Textures", "Previews");
+                Directory.CreateDirectory(texturesDir); // ✅ Always create it, even if empty
+
+                // 👇 Force lowercase for the preview image in Textures/Previews
+                string previewTargetMain = Path.Combine(texturesDir, $"{ship.defName.ToLowerInvariant()}.png");
+                string previewTargetAbout = Path.Combine(modFolder, "About", "Preview.png");
+
+                bool hasPreview = false;
+
+                try
+                {
+                    if (File.Exists(previewSource))
+                    {
+                        File.Copy(previewSource, previewTargetMain, overwrite: true);
+                        File.Copy(previewSource, previewTargetAbout, overwrite: true);
+                        hasPreview = true;
+                        if (debugLogs)
+                            Log.Message($"[GravshipExport/Export] Copied preview image to: \n - {previewTargetMain}\n - {previewTargetAbout}");
+                    }
+                    else
+                    {
+                        if (debugLogs)
+                            Log.Warning("[GravshipExport/Export] No preview image found for ship.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Log.Error($"[GravshipExport/Export] Failed to copy preview image: {ex}");
+                }
+
+
+                Find.WindowStack.Add(new Dialog_ModExportSuccess(modFolder, modName, hasPreview));
+
+
                 if (debugLogs) Log.Message($"[GravshipExport/Export] Wrote About.xml to {aboutPath} (created only if absent)");
                 if (debugLogs) Log.Message($"[GravshipExport/Export] Wrote Def to {defPath}");
             }
@@ -187,22 +242,32 @@ namespace GravshipExport
         {
             if (string.IsNullOrEmpty(value))
             {
-                return "User";
+                return "user";
             }
 
-            var chars = value.Where(ch => char.IsLetterOrDigit(ch) || ch == '.' || ch == '_').ToArray();
+            // ✅ Lowercase and replace spaces/underscores with nothing
+            value = value.ToLowerInvariant()
+                         .Replace(" ", "")
+                         .Replace("_", "");
+
+            // ✅ Keep only letters, digits, and dots
+            var chars = value.Where(ch => char.IsLetterOrDigit(ch) || ch == '.').ToArray();
             string cleaned = new string(chars);
+
+            // ✅ Fallback if cleaned string is empty
             if (string.IsNullOrEmpty(cleaned))
             {
-                cleaned = "User";
+                cleaned = "user";
             }
 
+            // ✅ Must start with a letter
             if (!char.IsLetter(cleaned[0]))
             {
-                cleaned = "U" + cleaned;
+                cleaned = "u" + cleaned;
             }
 
             return cleaned;
         }
+
     }
 }

@@ -8,7 +8,7 @@ namespace GravshipExport
 
         public override void ExposeData()
         {
-            // ✅ Save the defName and label alongside the full layout
+            // ✅ Save current selection
             if (Scribe.mode == LoadSaveMode.Saving && lastUsedShip != null)
             {
                 if (string.IsNullOrEmpty(lastUsedShip.defName))
@@ -19,6 +19,12 @@ namespace GravshipExport
             }
 
             Scribe_Deep.Look(ref lastUsedShip, "lastUsedShip");
+
+            // ✅ Fallback to a default ship on first load if none was saved
+            if (Scribe.mode == LoadSaveMode.PostLoadInit && lastUsedShip == null)
+            {
+                lastUsedShip = DefDatabase<ShipLayoutDefV2>.GetNamedSilentFail("Odyssey_Original_Ship");
+            }
         }
     }
 }

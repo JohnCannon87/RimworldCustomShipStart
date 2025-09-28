@@ -1,7 +1,6 @@
 ﻿using RimWorld;
 using RimWorld.SketchGen;
 using Verse;
-using System.Collections.Generic;
 
 namespace GravshipExport
 {
@@ -17,15 +16,29 @@ namespace GravshipExport
         {
             if (ModLister.CheckOdyssey("Ancient launch pad"))
             {
-                // If no ship was explicitly provided, try to load the last one from mod settings
                 var settings = LoadedModManager.GetMod<GravshipExportMod>()?.GetSettings<GravshipExportModSettings>();
-                if (settings?.lastUsedShip != null)
+                var ship = settings?.lastUsedShip;
+
+                // ✅ Defensive fallback (should normally be set by settings)
+                if (ship == null)
                 {
-                    //jcLog.Message("[GravshipExport] Auto-loading last used ship from settings...");
-                    Sketch built = ShipSketchBuilder.BuildFromLayout(settings.lastUsedShip);
-                    parms.sketch.Merge(built);
+                    ship = DefDatabase<ShipLayoutDefV2>.GetNamedSilentFail("Odyssey_Original_Ship");
+                    if (ship != null)
+                    {
+                        settings.lastUsedShip = ship;
+                    }
+                    else
+                    {
+                        Log.Warning("[GravshipExport] WARNING: Could not find fallback ship 'Odyssey_Original_Ship'. Generation may fail.");
+                        return;
+                    }
                 }
+
+                //jcLog.Message("[GravshipExport] Using ship layout: " + ship.defName);
+                Sketch built = ShipSketchBuilder.BuildFromLayout(ship);
+                parms.sketch.Merge(built);
             }
         }
+
     }
 }
