@@ -1,5 +1,7 @@
 ﻿using System;
 using System.IO;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using Verse;
 using RimWorld;
@@ -7,29 +9,40 @@ using Hjg.Pngcs;
 
 namespace GravshipExport
 {
+    /// <summary>
+    /// Renders a top-down transparent PNG of the ship area.
+    /// Uses the real RimWorld map camera and captures at end-of-frame.
+    /// </summary>
     internal static class ShipPreviewRenderer
     {
+        // ──────────────────────────────────────────────────────────────────────────
+        // Toggle verbose logs for this class only.
+        private const bool DebugLogs = false;
+
+        private static void DMsg(string msg) { if (DebugLogs) Log.Message("[GravshipExport] " + msg); }
+        private static void DWarn(string msg) { if (DebugLogs) Log.Warning("[GravshipExport] " + msg); }
+        private static void DErr(string msg) { Log.Error("[GravshipExport] " + msg); } // errors always log
+        // ──────────────────────────────────────────────────────────────────────────
+
         /// <summary>
         /// Convenience entry point: saves to Config/GravshipExport/&lt;shipName&gt;.png
         /// </summary>
         public static void Capture(Building_GravEngine engine, ShipLayoutDefV2 layout, string shipName)
         {
             if (string.IsNullOrWhiteSpace(shipName)) shipName = "ShipPreview";
+            if (!shipName.EndsWith(".png", StringComparison.OrdinalIgnoreCase))
+                shipName += ".png";
+
             string cfgDir = Path.Combine(GenFilePaths.ConfigFolderPath, "GravshipExport");
             if (!Directory.Exists(cfgDir)) Directory.CreateDirectory(cfgDir);
-            string outPath = Path.Combine(cfgDir, shipName + ".png");
+            string outPath = Path.Combine(cfgDir, shipName);
+
             Capture(engine, layout, outPath, marginCells: 2, longestSidePixels: 1536, maxTextureSize: 4096);
         }
 
         /// <summary>
         /// Full control entry point.
         /// </summary>
-        /// <param name="engine">Placed grav engine (ship is already spawned).</param>
-        /// <param name="layout">Ship layout (width/height + gravEngineX/Z).</param>
-        /// <param name="absoluteOutputPath">Absolute PNG path to write.</param>
-        /// <param name="marginCells">Padding (cells) around ship bounds (default 2).</param>
-        /// <param name="longestSidePixels">Target pixels for the longer ship side (default 1536).</param>
-        /// <param name="maxTextureSize">Safety clamp for RT/Texture dimensions (default 4096).</param>
         public static void Capture(
             Building_GravEngine engine,
             ShipLayoutDefV2 layout,
@@ -42,17 +55,17 @@ namespace GravshipExport
             {
                 if (engine?.Map == null || layout == null || layout.width <= 0 || layout.height <= 0)
                 {
-                    Log.Warning("[GravshipExport] ShipPreviewRenderer: invalid inputs.");
+                    DWarn("ShipPreviewRenderer: invalid inputs.");
                     return;
                 }
-
-                Map map = engine.Map;
 
                 // Compute ship bounds (in map cells) relative to placed engine.
                 IntVec3 topLeft = new IntVec3(
                     engine.Position.x - layout.gravEngineX,
                     0,
                     engine.Position.z - layout.gravEngineZ);
+
+                Map map = engine.Map;
 
                 int minX = Mathf.Max(0, topLeft.x - marginCells);
                 int minZ = Mathf.Max(0, topLeft.z - marginCells);
@@ -63,7 +76,7 @@ namespace GravshipExport
                 int cellsH = maxZ - minZ + 1;
                 if (cellsW <= 0 || cellsH <= 0)
                 {
-                    Log.Warning("[GravshipExport] ShipPreviewRenderer: computed empty bounds.");
+                    DWarn("ShipPreviewRenderer: computed empty bounds.");
                     return;
                 }
 
@@ -76,88 +89,245 @@ namespace GravshipExport
                 float centerX = (minX + maxX + 1) * 0.5f;
                 float centerZ = (minZ + maxZ + 1) * 0.5f;
 
-                Log.Message($"[GravshipExport] Bounds: ({minX},{minZ})–({maxX},{maxZ})  Cells {cellsW}x{cellsH}  | ppc {ppc}  => {widthPx}x{heightPx}px");
+                DMsg($"Bounds: ({minX},{minZ})–({maxX},{maxZ})  Cells {cellsW}x{cellsH}  | ppc {ppc}  => {widthPx}x{heightPx}px");
 
-                // Ensure map sections are up-to-date
+                // Ensure the map meshes are up to date (sections, etc.)
                 map.mapDrawer.RegenerateEverythingNow();
 
-                // Use active camera
-                Camera camera = Find.Camera;
-                if (camera == null)
+                // Spin up a temporary runner to do the capture at end-of-frame.
+                var go = new GameObject("GravshipExport_CaptureRunner");
+                go.hideFlags = HideFlags.HideAndDontSave;
+                var runner = go.AddComponent<ShipPreviewCaptureRunner>();
+
+                runner.Begin(new ShipPreviewCaptureRunner.Args
                 {
-                    Log.Error("[GravshipExport] ShipPreviewRenderer: Find.Camera returned null.");
-                    return;
-                }
-
-                var camDriver = Find.CameraDriver;
-                var oldPos = map.rememberedCameraPos;
-                bool oldEnabled = camDriver.enabled;
-
-                // Backup camera state
-                var clearFlagsOld = camera.clearFlags;
-                var bgOld = camera.backgroundColor;
-                var orthoOld = camera.orthographic;
-                var orthoSizeOld = camera.orthographicSize;
-                var farClipOld = camera.farClipPlane;
-                var cullingMaskOld = camera.cullingMask;
-                var rtOld = camera.targetTexture;
-                var rotOld = camera.transform.rotation;
-                var posOld = camera.transform.position;
-
-                try
-                {
-                    camDriver.enabled = false;
-
-                    camera.orthographic = true;
-                    // Half of vertical world span; +1f tiny buffer
-                    camera.orthographicSize = cellsH * 0.5f + 1f;
-                    camera.transform.position = new Vector3(centerX, 100f, centerZ);
-                    camera.transform.rotation = Quaternion.Euler(90f, 0f, 0f);
-                    camera.clearFlags = CameraClearFlags.SolidColor;
-                    camera.backgroundColor = Color.clear; // transparent background
-                    camera.farClipPlane = 2000f;
-                    camera.cullingMask = ~0; // everything
-
-                    using (var ctx = new CaptureContext(camera, widthPx, heightPx))
-                    {
-                        // Make sure projection is clean, then render
-                        camera.ResetWorldToCameraMatrix();
-                        camera.ResetProjectionMatrix();
-
-                        // Tick the driver to ensure map draw lists are synced with new view
-                        Find.CameraDriver.Update();
-
-                        camera.Render();
-
-                        // Grab pixels and write PNG
-                        var tex = ctx.ReadBack();
-                        SaveTextureWithPngcs(tex, absoluteOutputPath);
-                        UnityEngine.Object.Destroy(tex);
-                    }
-                }
-                finally
-                {
-                    // Restore everything
-                    camera.clearFlags = clearFlagsOld;
-                    camera.backgroundColor = bgOld;
-                    camera.orthographic = orthoOld;
-                    camera.orthographicSize = orthoSizeOld;
-                    camera.farClipPlane = farClipOld;
-                    camera.cullingMask = cullingMaskOld;
-                    camera.targetTexture = rtOld;
-                    camera.transform.rotation = rotOld;
-                    camera.transform.position = posOld;
-
-                    camDriver.enabled = oldEnabled;
-                    camDriver.SetRootPosAndSize(oldPos.rootPos, oldPos.rootSize);
-                }
-
-                Log.Message($"[GravshipExport] ✅ Ship preview captured: {absoluteOutputPath}");
+                    Map = map,
+                    CenterX = centerX,
+                    CenterZ = centerZ,
+                    CellsH = cellsH,
+                    WidthPx = widthPx,
+                    HeightPx = heightPx,
+                    OutputPath = absoluteOutputPath
+                });
             }
             catch (Exception ex)
             {
-                Log.Error("[GravshipExport] ShipPreviewRenderer.Capture failed: " + ex);
+                DErr("ShipPreviewRenderer.Capture failed: " + ex);
             }
+        }
+
+        /// <summary>
+        /// Tiny helper MonoBehaviour that performs the capture at end-of-frame
+        /// when RimWorld has actually drawn the map.
+        /// </summary>
+        private sealed class ShipPreviewCaptureRunner : MonoBehaviour
+        {
+            public struct Args
+            {
+                public Map Map;
+                public float CenterX;
+                public float CenterZ;
+                public int CellsH;
+                public int WidthPx;
+                public int HeightPx;
+                public string OutputPath;
+            }
+
+            private Args a;
+
+            // Backup camera & driver state
+            private Camera camera;
+            private CameraDriver camDriver;
+
+            private CameraClearFlags clearFlagsOld;
+            private Color bgOld;
+            private bool orthoOld;
+            private float orthoSizeOld;
+            private float farClipOld, nearClipOld;
+            private int cullingMaskOld;
+            private RenderTexture rtOld;
+            private Quaternion rotOld;
+            private Vector3 posOld;
+            private bool driverEnabledOld;
+            private RememberedCameraPos oldRemembered;
+
+            private List<object> previousSelection;
+
+            public void Begin(Args args)
+            {
+                a = args;
+
+                // Save and clear current selection to prevent overlays
+                previousSelection = new List<object>(Find.Selector.SelectedObjectsListForReading);
+                Find.Selector.ClearSelection();
+
+                // Use the REAL map camera RimWorld draws with
+                camera = Find.Camera ?? Camera.main;
+                camDriver = Find.CameraDriver;
+
+                if (camera == null || camDriver == null)
+                {
+                    DErr("No valid map camera / driver found.");
+                    Destroy(gameObject);
+                    return;
+                }
+
+                // Back up camera/driver state
+                clearFlagsOld = camera.clearFlags;
+                bgOld = camera.backgroundColor;
+                orthoOld = camera.orthographic;
+                orthoSizeOld = camera.orthographicSize;
+                farClipOld = camera.farClipPlane;
+                nearClipOld = camera.nearClipPlane;
+                cullingMaskOld = camera.cullingMask;
+                rtOld = camera.targetTexture;
+                rotOld = camera.transform.rotation;
+                posOld = camera.transform.position;
+
+                driverEnabledOld = camDriver.enabled;
+                oldRemembered = a.Map.rememberedCameraPos;
+
+                // Move & configure camera for top-down capture
+                try
+                {
+                    camDriver.enabled = false; // take control temporarily
+
+                    camera.orthographic = true;
+                    camera.orthographicSize = a.CellsH * 0.5f + 1f;
+                    camera.transform.position = new Vector3(a.CenterX, 50f, a.CenterZ);
+                    camera.transform.rotation = Quaternion.Euler(90f, 0f, 0f);
+
+                    camera.clearFlags = CameraClearFlags.SolidColor;
+                    camera.backgroundColor = Color.clear; // transparent background
+                    camera.nearClipPlane = 0.1f;
+                    camera.farClipPlane = 500f;
+                    camera.cullingMask = -1; // everything
+
+                    DMsg($"Camera setup: pos=({camera.transform.position.x},{camera.transform.position.y},{camera.transform.position.z}) orthoSize={camera.orthographicSize}");
+                }
+                catch (Exception ex)
+                {
+                    DErr("Failed to set up camera: " + ex);
+                    Restore();
+                    Destroy(gameObject);
+                    return;
+                }
+
+                // Kick the coroutine; capture happens after RimWorld draws this frame.
+                StartCoroutine(CaptureCoroutine());
+            }
+
+            private void Restore()
+            {
+                try
+                {
+                    // Restore previous selection
+                    if (previousSelection != null && previousSelection.Count > 0)
+                    {
+                        Find.Selector.ClearSelection();
+                        foreach (var obj in previousSelection)
+                        {
+                            try { Find.Selector.Select(obj); }
+                            catch (Exception selEx) { DWarn($"Failed to restore selection for {obj}: {selEx.Message}"); }
+                        }
+                    }
+
+                    if (camera != null)
+                    {
+                        camera.clearFlags = clearFlagsOld;
+                        camera.backgroundColor = bgOld;
+                        camera.orthographic = orthoOld;
+                        camera.orthographicSize = orthoSizeOld;
+                        camera.farClipPlane = farClipOld;
+                        camera.nearClipPlane = nearClipOld;
+                        camera.cullingMask = cullingMaskOld;
+                        camera.targetTexture = rtOld;
+                        camera.transform.rotation = rotOld;
+                        camera.transform.position = posOld;
+                    }
+
+                    if (camDriver != null)
+                    {
+                        camDriver.enabled = driverEnabledOld;
+                        camDriver.SetRootPosAndSize(oldRemembered.rootPos, oldRemembered.rootSize);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    DErr("Failed to restore camera/driver: " + ex);
+                }
+            }
+
+            private IEnumerator CaptureCoroutine()
+            {
+                // Let RimWorld finish drawing the current frame
+                yield return new WaitForEndOfFrame();
+
+                RenderTexture rt = null;
+                Texture2D tex = null;
+
+                try
+                {
+                    rt = RenderTexture.GetTemporary(a.WidthPx, a.HeightPx, 24, RenderTextureFormat.ARGB32);
+
+                    // Render the scene directly into our RT
+                    var prevTarget = camera.targetTexture;
+                    var prevActive = RenderTexture.active;
+
+                    camera.targetTexture = rt;
+                    RenderTexture.active = rt;
+
+                    camera.Render();
+
+                    // Read pixels from RT (once)
+                    tex = new Texture2D(a.WidthPx, a.HeightPx, TextureFormat.RGBA32, false);
+                    tex.ReadPixels(new Rect(0, 0, a.WidthPx, a.HeightPx), 0, 0, false);
+                    tex.Apply(false, false);
+
+                    // Restore previous state
+                    RenderTexture.active = prevActive;
+                    camera.targetTexture = prevTarget;
+
+                    // Downscale by 50% before saving
+                    tex = DownscaleTexture(tex, 0.5f);
+
+                    SaveTextureWithPngcs(tex, a.OutputPath);
+                    DMsg($"✅ Ship preview captured: {a.OutputPath}");
+                }
+                catch (Exception ex)
+                {
+                    DErr("Capture failed: " + ex);
+                }
+                finally
+                {
+                    if (tex != null) Destroy(tex);
+                    if (rt != null) RenderTexture.ReleaseTemporary(rt);
+                    Restore();
+                    Destroy(gameObject); // clean up the runner
+                }
+            }
+        }
+
+        private static Texture2D DownscaleTexture(Texture2D source, float scale)
+        {
+            int newW = Mathf.Max(1, Mathf.RoundToInt(source.width * scale));
+            int newH = Mathf.Max(1, Mathf.RoundToInt(source.height * scale));
+
+            RenderTexture rt = RenderTexture.GetTemporary(newW, newH, 0, RenderTextureFormat.ARGB32);
+            Graphics.Blit(source, rt);
+
+            RenderTexture prev = RenderTexture.active;
+            RenderTexture.active = rt;
+
+            Texture2D result = new Texture2D(newW, newH, TextureFormat.RGBA32, false);
+            result.ReadPixels(new Rect(0, 0, newW, newH), 0, 0);
+            result.Apply();
+
+            RenderTexture.active = prev;
+            RenderTexture.ReleaseTemporary(rt);
+            UnityEngine.Object.Destroy(source);
+
+            return result;
         }
 
         private static void SaveTextureWithPngcs(Texture2D tex, string path)
@@ -170,7 +340,6 @@ namespace GravshipExport
                 int w = tex.width;
                 int h = tex.height;
 
-                // Ensure dir exists
                 string dir = Path.GetDirectoryName(path);
                 if (!string.IsNullOrEmpty(dir) && !Directory.Exists(dir))
                     Directory.CreateDirectory(dir);
@@ -182,7 +351,7 @@ namespace GravshipExport
                     for (int y = 0; y < h; y++)
                     {
                         var line = new ImageLine(png.ImgInfo);
-                        int rowStart = (h - 1 - y) * w; // flip vertically for PNG
+                        int rowStart = (h - 1 - y) * w; // flip vertically
                         for (int x = 0; x < w; x++)
                         {
                             Color32 c = pixels[rowStart + x];
@@ -198,53 +367,11 @@ namespace GravshipExport
                     png.End();
                 }
 
-                Log.Message("[GravshipExport] ✅ PNG written via Pngcs: " + path);
+                DMsg("✅ PNG written via Pngcs: " + path);
             }
             catch (Exception ex)
             {
-                Log.Error("[GravshipExport] Failed to write PNG: " + ex);
-            }
-        }
-
-        /// <summary>
-        /// Small helper to manage a temporary RT and readback texture safely.
-        /// </summary>
-        private sealed class CaptureContext : IDisposable
-        {
-            private readonly Camera cam;
-            private readonly RenderTexture rt;
-            private readonly int width;
-            private readonly int height;
-            private readonly RenderTexture prevActive;
-            private readonly RenderTexture prevTarget;
-
-            public CaptureContext(Camera cam, int width, int height)
-            {
-                this.cam = cam;
-                this.width = width;
-                this.height = height;
-
-                prevTarget = cam.targetTexture;
-                prevActive = RenderTexture.active;
-
-                rt = RenderTexture.GetTemporary(width, height, 24, RenderTextureFormat.ARGB32);
-                cam.targetTexture = rt;
-                RenderTexture.active = rt;
-            }
-
-            public Texture2D ReadBack()
-            {
-                var tex = new Texture2D(width, height, TextureFormat.RGBA32, false);
-                tex.ReadPixels(new Rect(0, 0, width, height), 0, 0, false);
-                tex.Apply(false, false);
-                return tex;
-            }
-
-            public void Dispose()
-            {
-                RenderTexture.active = prevActive;
-                cam.targetTexture = prevTarget;
-                if (rt != null) RenderTexture.ReleaseTemporary(rt);
+                DErr("Failed to write PNG: " + ex);
             }
         }
     }

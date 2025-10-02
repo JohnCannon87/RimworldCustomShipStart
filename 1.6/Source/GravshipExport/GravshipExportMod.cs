@@ -34,48 +34,54 @@ namespace GravshipExport
                 if (DebugLogs) Log.Message("[GravshipExport/UI] Opening settings — performing initial refresh…");
                 ShipManager.Refresh();
                 didInitialRefresh = true;
-
-                if (DebugLogs)
-                {
-                    Log.Message($"[GravshipExport/UI] After refresh: LoadedShips.Count={ShipManager.LoadedShips.Count}");
-                    if (ShipManager.LoadedShips.Count > 0)
-                    {
-                        var keys = string.Join(", ", ShipManager.LoadedShips.Keys.Take(10));
-                        Log.Message($"[GravshipExport/UI] First keys (up to 10): {keys}");
-                    }
-                    Log.Message($"[GravshipExport/UI] settings.lastUsedShip={(settings.lastUsedShip != null ? settings.lastUsedShip.defName : "null")}");
-                }
-
                 TryRestoreLastUsedShip();
             }
 
-            var headerRect = new Rect(inRect.x, inRect.y, inRect.width, 112f);
-            ModHeaderView.Draw(headerRect, settings.lastUsedShip, ref searchText);
+            float y = inRect.y;
 
-            var listRect = new Rect(inRect.x, headerRect.yMax + 8f, inRect.width, inRect.height - headerRect.height - 8f);
+            // 🎲 Random mode toggle
+            Rect randomToggleRect = new Rect(inRect.x, y, inRect.width, 28f);
+            Widgets.CheckboxLabeled(randomToggleRect, "🎲 Enable Random Ship Selection", ref settings.randomSelectionEnabled);
+            y += 32f;
+
+            // 📊 Dynamic info line (depends on mode)
+            string infoLine = settings.randomSelectionEnabled
+                ? (settings.randomShipPool?.Count > 0
+                    ? $"Ships in random pool: {settings.randomShipPool.Count}"
+                    : "⚠️ No ships selected for the random pool!")
+                : (settings.lastUsedShip != null
+                    ? $"Current ship: {settings.lastUsedShip.label ?? settings.lastUsedShip.defName}"
+                    : "No default ship selected.");
+
+            Rect infoRect = new Rect(inRect.x + 6f, y, inRect.width - 12f, 22f);
+            Widgets.Label(infoRect, infoLine);
+            y += 28f;
+
+            // --- Search header (much smaller now) ---
+            ShipLayoutDefV2 headerShip = settings.randomSelectionEnabled ? null : settings.lastUsedShip;
+            float headerHeight = 38f; // shrunk from ~90px
+            var headerRect = new Rect(inRect.x, y, inRect.width, headerHeight);
+            ModHeaderView.Draw(headerRect, headerShip, ref searchText);
+            y += headerHeight + 6f;
+
+            // --- Ship list fills all remaining space dynamically ---
+            var listRect = new Rect(inRect.x, y, inRect.width, inRect.height - y - 6f);
             DrawShipList(listRect);
         }
 
         private void TryRestoreLastUsedShip()
         {
             if (settings.lastUsedShip == null)
-            {
-                if (DebugLogs) Log.Message("[GravshipExport/Restore] No lastUsedShip stored. Nothing to restore.");
                 return;
-            }
 
             string defName = settings.lastUsedShip.defName;
             if (string.IsNullOrEmpty(defName))
-            {
-                if (DebugLogs) Log.Warning("[GravshipExport/Restore] lastUsedShip has no defName — cannot restore.");
                 return;
-            }
 
             var exported = ShipManager.LoadedShips.Values.FirstOrDefault(s => s.defName == defName);
             if (exported != null)
             {
                 settings.lastUsedShip = exported;
-                if (DebugLogs) Log.Message($"[GravshipExport/Restore] Matched lastUsedShip to exported ship by defName='{defName}'");
                 return;
             }
 
@@ -83,11 +89,7 @@ namespace GravshipExport
             if (modDef != null)
             {
                 settings.lastUsedShip = modDef;
-                if (DebugLogs) Log.Message($"[GravshipExport/Restore] Matched lastUsedShip to mod def by defName='{defName}'");
-                return;
             }
-
-            Log.Warning($"[GravshipExport/Restore] Could not find a ship with defName='{defName}'. Highlight may fail until reapplied.");
         }
 
         private void DrawShipList(Rect outRect)
@@ -124,6 +126,13 @@ namespace GravshipExport
                 return;
 
             settings.lastUsedShip = item.Ship;
+
+            if (settings.randomSelectionEnabled)
+            {
+                settings.randomSelectionEnabled = false;
+                Messages.Message("[GravshipExport] Random ship selection disabled (manual ship chosen).", MessageTypeDefOf.NeutralEvent);
+            }
+
             WriteSettings();
             Messages.Message($"[GravshipExport] Ship '{item.Ship.label}' set as default.", MessageTypeDefOf.PositiveEvent, false);
         }
@@ -143,6 +152,5 @@ namespace GravshipExport
                     exportController.ExportShipAsMod(item.Ship, modName, null);
                 }));
         }
-
     }
 }

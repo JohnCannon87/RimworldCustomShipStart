@@ -36,15 +36,13 @@ namespace GravshipExport
 
             string text =
                 $"✅ Your ship \"{layoutName}\" was exported successfully!\n\n" +
-                "📸 To add a preview image:\n\n" +
+                "📸 The preview image should have been generated automatically, you can check in the config folder below if you like:\n\n" +
                 "1. Open the following folder on your system:\n" +
                 $"   {configPath}\n\n" +
-                "2. Place a PNG file with the **exact same name** as your exported XML file in that folder.\n\n" +
+                "2. There should be a PNG file with the **exact same name** as your exported XML file in that folder.\n\n" +
                 "   i.e.:\n" +
                 $"   {layoutName}.xml\n" +
-                $"   {layoutName}.png\n\n" +
-                "💡 Recommended size: ~512×512 or larger.\n\n" +
-                "⚠️ We’re sorry this isn’t automated yet — we’re actively working on an update that will capture ship previews automatically.";
+                $"   {layoutName}.png\n\n";
 
             Widgets.Label(new Rect(0f, y, inRect.width, Text.CalcHeight(text, inRect.width)), text);
             y += Text.CalcHeight(text, inRect.width) + 20f;
