@@ -12,8 +12,8 @@ namespace GravshipExport
     /// </summary>
     public static class ShipSketchBuilder
     {
-        private const bool LogInfo = true;
-        private const bool LogWarn = true;
+        private const bool LogInfo = false;
+        private const bool LogWarn = false;
         private static float originalRange = -1f;
 
         /// <summary>
@@ -45,9 +45,6 @@ namespace GravshipExport
             TryAddGravEngine(sketch, new IntVec3(layout.gravEngineX, 0, layout.gravEngineZ));
 
             ExpandGravEngineRange();
-
-            // 2️⃣ Pre-place Grav Field Extenders before any other structure
-            //TryAddGravFieldExtenders(sketch, layout);
 
             var terrainCache = new Dictionary<string, TerrainDef>(StringComparer.Ordinal);
             var thingCache = new Dictionary<string, ThingDef>(StringComparer.Ordinal);
@@ -180,54 +177,6 @@ namespace GravshipExport
             }
         }
 
-        /// <summary>
-        /// Pre-place all GravFieldExtender things before other buildings.
-        /// </summary>
-        private static void TryAddGravFieldExtenders(Sketch sketch, ShipLayoutDefV2 layout)
-        {
-            var gravFieldExtenderDef = DefDatabase<ThingDef>.GetNamedSilentFail("GravFieldExtender");
-            if (gravFieldExtenderDef == null)
-            {
-                Log.Warning("[GravshipExport] GravFieldExtender ThingDef not found — skipping.");
-                return;
-            }
-
-            for (int z = 0; z < layout.rows.Count; z++)
-            {
-                var row = layout.rows[z];
-                if (row == null) continue;
-
-                for (int x = 0; x < row.Count; x++)
-                {
-                    var cell = row[x];
-                    if (cell?.things == null) continue;
-
-                    foreach (var t in cell.things)
-                    {
-                        if (t?.defName == "GravFieldExtender")
-                        {
-                            var pos = new IntVec3(x, 0, z);
-                            var rot = new Rot4(t.rotInteger);
-                            sketch.AddThing(
-                                gravFieldExtenderDef,
-                                pos,
-                                rot,
-                                null,
-                                1,
-                                null,
-                                null,
-                                false,
-                                0.55f
-                            );
-
-                            if (LogInfo)
-                                Log.Message($"[GravshipExport] Pre-placed GravFieldExtender at {pos} rot={rot}");
-                        }
-                    }
-                }
-            }
-        }
-
         private static TerrainDef ResolveTerrain(string defName, Dictionary<string, TerrainDef> cache)
         {
             if (string.IsNullOrEmpty(defName)) return null;
@@ -279,7 +228,9 @@ namespace GravshipExport
             var comp = ThingDefOf.GravEngine?.comps?.FirstOrDefault(c => c is CompProperties_SubstructureFootprint) as CompProperties_SubstructureFootprint;
             if (comp != null)
             {
-                originalRange = comp.radius;
+                if (originalRange < 0f) // ✅ only capture original once
+                    originalRange = comp.radius;
+
                 comp.radius = 79;
                 Log.Message($"[GravshipExport] Temporarily expanded GravEngine facility range from {originalRange} → {comp.radius}");
             }
@@ -288,7 +239,8 @@ namespace GravshipExport
                 Log.Warning("[GravshipExport] Could not find CompProperties_Facility on GravEngine to expand range.");
             }
         }
-        private static void RestoreGravEngineRange()
+
+        public static void RestoreGravEngineRange()
         {
             var comp = ThingDefOf.GravEngine?.comps?.FirstOrDefault(c => c is CompProperties_SubstructureFootprint) as CompProperties_SubstructureFootprint;
             if (comp != null && originalRange > 0f)

@@ -40,7 +40,6 @@ namespace GravshipExport
                     IntVec3 mapCell = playerStartSpot + (local - centerOffset);
                     if (!mapCell.InBounds(map)) continue;
 
-                    // Only clear if there's under-terrain *and* we're going to place substructure here
                     TerrainDef under = map.terrainGrid.UnderTerrainAt(mapCell);
                     if (under != null)
                     {
@@ -59,7 +58,14 @@ namespace GravshipExport
             Log.Message("[GravshipExport] ===== DoGravship Prefix END =====");
         }
 
-        // 🔁 Transpiler still replaces vanilla Gravship resolver with CustomGravship
+        // ✅ Postfix: runs *after* everything has spawned
+        static void Postfix()
+        {
+            Log.Message("[GravshipExport] ===== DoGravship Postfix: Restoring GravEngine range =====");
+            ShipSketchBuilder.RestoreGravEngineRange();
+        }
+
+        // 🔁 Transpiler: replace default resolver with our custom one
         static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             var codes = new List<CodeInstruction>(instructions);
@@ -75,7 +81,7 @@ namespace GravshipExport
                 if (codes[i].opcode == OpCodes.Ldsfld && codes[i].operand == gravshipField)
                 {
                     yield return new CodeInstruction(OpCodes.Ldstr, "CustomGravship");
-                    yield return new CodeInstruction(OpCodes.Ldc_I4_1); // true
+                    yield return new CodeInstruction(OpCodes.Ldc_I4_1);
                     yield return new CodeInstruction(OpCodes.Call, getNamed);
                 }
                 else
