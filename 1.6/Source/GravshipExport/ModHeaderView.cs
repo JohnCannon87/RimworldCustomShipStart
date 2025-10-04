@@ -17,11 +17,12 @@ namespace GravshipExport
             float y = inner.y + 4f;
 
             // "Search:" label
-            var searchLabelRect = new Rect(inner.x + 4f, y, 40f, labelHeight);
+            var labelWidth = Text.CalcSize("Search:").x + 10f; // dynamically size or ~70f fixed
+            var searchLabelRect = new Rect(inner.x + 4f, y, labelWidth, labelHeight);
             Widgets.Label(searchLabelRect, "Search:");
 
             // Search text box
-            var searchRect = new Rect(searchLabelRect.xMax + 6f, y, inner.width - searchLabelRect.width - 10f, fieldHeight);
+            var searchRect = new Rect(searchLabelRect.xMax + 6f, y, inner.width - labelWidth - 10f, fieldHeight);
             searchText = Widgets.TextField(searchRect, searchText);
         }
     }

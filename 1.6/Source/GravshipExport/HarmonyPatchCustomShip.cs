@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
 using RimWorld;
@@ -13,10 +12,57 @@ namespace GravshipExport
     [HarmonyPatch(typeof(ScenPart_PlayerPawnsArriveMethod), "DoGravship")]
     public static class HarmonyPatchCustomShip
     {
+        // 🧹 Prefix: run *before* vanilla code, with map available
+        static void Prefix(Map map)
+        {
+            Log.Message("[GravshipExport] ===== DoGravship Prefix START =====");
+
+            try
+            {
+                // 1️⃣ Build our custom sketch to get its footprint
+                SketchResolveParams parms = default;
+                parms.sketch = new Sketch();
+                var customResolver = DefDatabase<SketchResolverDef>.GetNamed("CustomGravship", true);
+                Sketch preview = RimWorld.SketchGen.SketchGen.Generate(customResolver, parms);
+
+                // 2️⃣ Get where the gravship will spawn
+                IntVec3 playerStartSpot = MapGenerator.PlayerStartSpot;
+                if (!MapGenerator.PlayerStartSpotValid)
+                {
+                    Log.Warning("[GravshipExport] PlayerStartSpot is not valid yet, terrain clearing might be partial.");
+                }
+
+                // 3️⃣ Translate sketch cells into map coordinates
+                IntVec3 centerOffset = preview.OccupiedCenter;
+                var cleared = 0;
+                foreach (IntVec3 local in preview.OccupiedRect.Cells)
+                {
+                    IntVec3 mapCell = playerStartSpot + (local - centerOffset);
+                    if (!mapCell.InBounds(map)) continue;
+
+                    // Only clear if there's under-terrain *and* we're going to place substructure here
+                    TerrainDef under = map.terrainGrid.UnderTerrainAt(mapCell);
+                    if (under != null)
+                    {
+                        map.terrainGrid.RemoveTopLayer(mapCell);
+                        cleared++;
+                    }
+                }
+
+                Log.Message($"[GravshipExport] Cleared under-terrain from {cleared} cells before gravship spawn.");
+            }
+            catch (Exception ex)
+            {
+                Log.Error($"[GravshipExport] Terrain clearing failed in Prefix: {ex}");
+            }
+
+            Log.Message("[GravshipExport] ===== DoGravship Prefix END =====");
+        }
+
+        // 🔁 Transpiler still replaces vanilla Gravship resolver with CustomGravship
         static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             var codes = new List<CodeInstruction>(instructions);
-
             var gravshipField = AccessTools.Field(typeof(SketchResolverDefOf), "Gravship");
             var getNamed = AccessTools.Method(
                 typeof(DefDatabase<SketchResolverDef>),
@@ -28,7 +74,6 @@ namespace GravshipExport
             {
                 if (codes[i].opcode == OpCodes.Ldsfld && codes[i].operand == gravshipField)
                 {
-                    // Replace SketchResolverDefOf.Gravship with DefDatabase.GetNamed("CustomGravship", true)
                     yield return new CodeInstruction(OpCodes.Ldstr, "CustomGravship");
                     yield return new CodeInstruction(OpCodes.Ldc_I4_1); // true
                     yield return new CodeInstruction(OpCodes.Call, getNamed);
@@ -40,5 +85,4 @@ namespace GravshipExport
             }
         }
     }
-
 }

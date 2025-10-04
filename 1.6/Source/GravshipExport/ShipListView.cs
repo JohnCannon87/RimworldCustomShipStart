@@ -214,6 +214,9 @@ namespace GravshipExport
             string size = $"{width}×{height}";
 
             int thingCount = 0;
+            float totalWealth = 0f;
+
+            // 🔍 Count all placed things and calculate wealth
             if (item.Ship?.rows != null)
             {
                 foreach (var row in item.Ship.rows)
@@ -221,7 +224,20 @@ namespace GravshipExport
                     if (row == null) continue;
                     foreach (var cell in row)
                     {
-                        if (cell?.things != null) thingCount += cell.things.Count;
+                        if (cell?.things == null) continue;
+                        foreach (var entry in cell.things)
+                        {
+                            thingCount++;
+
+                            if (!string.IsNullOrEmpty(entry.defName))
+                            {
+                                var def = DefDatabase<ThingDef>.GetNamedSilentFail(entry.defName);
+                                if (def != null)
+                                {
+                                    totalWealth += def.BaseMarketValue;
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -230,15 +246,17 @@ namespace GravshipExport
                 ? item.Ship.description
                 : "No description provided.";
 
+            // 🧭 Draw metadata
             Text.Font = GameFont.Medium;
             listing.Label($"🛠 Ship Name: {shipName}");
             Text.Font = GameFont.Small;
             listing.Label($"📏 Size: {size}");
             listing.Label($"🧱 Things: {thingCount}");
+            listing.Label($"💰 Wealth: {totalWealth.ToStringMoney()}");
             listing.Label($"📦 Source: {item.SourceLabel ?? "Unknown"}");
             listing.GapLine();
 
-            // Scrollable description with a PERSISTENT Vector2 per row
+            // 📜 Scrollable description
             float maxDescHeight = 80f;
             Rect descRect = listing.GetRect(maxDescHeight);
 
@@ -250,6 +268,7 @@ namespace GravshipExport
 
             listing.End();
         }
+
 
         private static bool MatchesFilter(ShipListItem item, string filter)
         {
