@@ -84,6 +84,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="GravshipExport\Blueprints\DebugPatch_PlaceBlueprintForBuild.cs" />
+    <Compile Include="GravshipExport\Blueprints\Designator_PlaceShipBlueprint.cs" />
+    <Compile Include="GravshipExport\Blueprints\Designator_PlaceShipFoundationRoot.cs" />
+    <Compile Include="GravshipExport\Blueprints\Designator_PlaceShipBlueprintRoot.cs" />
+    <Compile Include="GravshipExport\Blueprints\Designator_PlaceShipFoundation.cs" />
+    <Compile Include="GravshipExport\Blueprints\HarmonyPatch_SketchTerrain.cs" />
+    <Compile Include="GravshipExport\Blueprints\TerrainGraphicFixer.cs" />
     <Compile Include="GravshipExport\Exporter\Dialog_ExportModName.cs" />
     <Compile Include="GravshipExport\Exporter\Dialog_ModExportSuccess.cs" />
     <Compile Include="GravshipExport\Exporter\Dialog_ShipExportHelp.cs" />

@@ -1,0 +1,9 @@
+<Patch>
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/DesignationCategoryDef[defName="Odyssey"]/specialDesignatorClasses</xpath>
+    <value>
+      <!-- IMPORTANT: provide the fully-qualified TYPE NAME as text -->
+      <li>GravshipExport.Blueprints.Designator_PlaceShipFoundationRoot</li>
+    </value>
+  </Operation>
+</Patch>

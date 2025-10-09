@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using GravshipExport.Blueprints;
 using RimWorld;
 using RimWorld.SketchGen;
 using Verse;
@@ -17,6 +18,75 @@ namespace GravshipExport
 
         public static ShipLayoutDefV2 CurrentLayout { get; private set; }
         public static Sketch CurrentSketch { get; private set; }
+
+        public static Sketch BuildBlueprintFromLayout(ShipLayoutDefV2 layout)
+        {
+            if (layout == null)
+            {
+                GravshipLogger.Error("BuildFromLayout: layout is null.");
+                return new Sketch();
+            }
+            if (layout.rows == null || layout.rows.Count == 0)
+            {
+                GravshipLogger.Error($"BuildFromLayout: layout '{layout.defName}' has no rows.");
+                return new Sketch();
+            }
+
+            GravshipLogger.Message($"Building layout '{layout.defName}' size {layout.width}x{layout.height}, rows={layout.rows.Count}.");
+
+            var sketch = new Sketch();
+
+            BuildShipSketch(layout, sketch);
+
+            return sketch;
+        }
+
+        public static Sketch BuildFoundationsFromLayout(ShipLayoutDefV2 layout)
+        {
+            if (layout == null)
+            {
+                GravshipLogger.Error("BuildFoundationsFromLayout: layout is null.");
+                return new Sketch();
+            }
+
+            GravshipLogger.Message($"[Builder] Building foundations for layout '{layout.defName}' ({layout.width}x{layout.height})");
+
+            var sketch = new Sketch();
+            var terrainCache = new Dictionary<string, TerrainDef>(StringComparer.Ordinal);
+
+            for (int z = 0; z < layout.rows.Count; z++)
+            {
+                var row = layout.rows[z];
+                if (row == null) continue;
+
+                for (int x = 0; x < row.Count; x++)
+                {
+                    var cell = row[x];
+                    if (cell == null) continue;
+
+                    var pos = new IntVec3(x, 0, z);
+
+                    // Only foundations
+                    if (!string.IsNullOrEmpty(cell.foundationDef))
+                    {
+                        var terrain = DefDatabase<TerrainDef>.GetNamedSilentFail(cell.foundationDef);
+                        if (terrain != null)
+                        {
+                            TerrainGraphicFixer.EnsureRenderable(terrain);
+                            sketch.AddTerrain(terrain, pos);
+                        }
+                        else
+                        {
+                            GravshipLogger.Warning($"[Builder] Unknown foundationDef '{cell.foundationDef}' at {pos}");
+                        }
+                    }
+                }
+            }
+
+            GravshipLogger.Message($"[Builder] Foundations sketch complete: {sketch.Terrain.Count} terrain entries.");
+
+            return sketch;
+        }
 
         /// <summary>
         /// Convert a ShipLayoutDefV2 into a Sketch.
@@ -47,69 +117,7 @@ namespace GravshipExport
             TryAddGravEngine(sketch, new IntVec3(layout.gravEngineX, 0, layout.gravEngineZ));
 
             ExpandGravEngineRange();
-
-            var terrainCache = new Dictionary<string, TerrainDef>(StringComparer.Ordinal);
-            var thingCache = new Dictionary<string, ThingDef>(StringComparer.Ordinal);
-
-            int cellCount = 0;
-            int thingCount = 0;
-
-            // 3️⃣ Normal placement pass (terrain, other things, etc.)
-            for (int z = 0; z < layout.rows.Count; z++)
-            {
-                var row = layout.rows[z];
-                if (row == null)
-                {
-                    GravshipLogger.Warning($"Row {z} is null, skipping.");
-                    continue;
-                }
-
-                for (int x = 0; x < row.Count; x++)
-                {
-                    var cell = row[x];
-                    if (cell == null) continue;
-
-                    var pos = new IntVec3(x, 0, z);
-                    GravshipLogger.Message($"Processing cell {pos}: {cell}");
-
-                    // Foundation layer (always part of sketch)
-                    var foundation = ResolveTerrain(cell.foundationDef, terrainCache);
-                    if (foundation != null)
-                        sketch.AddTerrain(foundation, pos);
-
-                    // Things
-                    if (cell.things != null && cell.things.Count > 0)
-                    {
-                        foreach (var t in cell.things)
-                        {
-                            if (t == null || string.IsNullOrEmpty(t.defName))
-                                continue;
-
-                            var thingDef = ResolveThing(t.defName, thingCache);
-                            if (!IsValidForSketch(thingDef))
-                            {
-                                GravshipLogger.Warning($"Skipping invalid thing '{t.defName}' at {pos}");
-                                continue;
-                            }
-
-                            var stuffDef = ResolveThing(t.stuffDef, thingCache); // may be null
-                            var rot = new Rot4(t.rotInteger);
-
-                            if (stuffDef != null && !thingDef.MadeFromStuff)
-                                stuffDef = null;
-
-                            sketch.AddThing(thingDef, pos, rot, stuffDef, 1, null, null, false);
-                            thingCount++;
-
-                            GravshipLogger.Message($"Added {thingDef.defName} (stuff={(stuffDef != null ? stuffDef.defName : "null")}) at {pos} rot={rot}");
-                        }
-                    }
-
-                    if (cell.HasAnyData) cellCount++;
-                }
-            }
-
-            GravshipLogger.Message($"Finished building sketch. Structural cells={cellCount}, things added={thingCount}.");
+            BuildShipSketch(layout, sketch);
 
             // Perimeter: MechanoidPlatform layer (unchanged)
             var mechanoidPlatform = DefDatabase<TerrainDef>.GetNamedSilentFail("MechanoidPlatform");
@@ -150,6 +158,79 @@ namespace GravshipExport
             }
 
             return sketch;
+        }
+
+        private static void BuildShipSketch(ShipLayoutDefV2 layout, Sketch sketch)
+        {
+            var terrainCache = new Dictionary<string, TerrainDef>(StringComparer.Ordinal);
+            var thingCache = new Dictionary<string, ThingDef>(StringComparer.Ordinal);
+
+            int cellCount = 0;
+            int thingCount = 0;
+
+            // 3️⃣ Normal placement pass (terrain, other things, etc.)
+            for (int z = 0; z < layout.rows.Count; z++)
+            {
+                var row = layout.rows[z];
+                if (row == null)
+                {
+                    GravshipLogger.Warning($"Row {z} is null, skipping.");
+                    continue;
+                }
+
+                for (int x = 0; x < row.Count; x++)
+                {
+                    var cell = row[x];
+                    if (cell == null) continue;
+
+                    var pos = new IntVec3(x, 0, z);
+                    GravshipLogger.Message($"Processing cell {pos}: {cell}");
+
+                    // Foundation layer (always part of sketch)
+                    var foundation = ResolveTerrain(cell.foundationDef, terrainCache);
+                    if (foundation != null)
+                    {
+                        TerrainGraphicFixer.EnsureRenderable(foundation);
+                        sketch.AddTerrain(foundation, pos);
+                    }
+                    else if (!string.IsNullOrEmpty(cell.foundationDef))
+                    {
+                        GravshipLogger.Warning($"Skipping unknown terrainDef '{cell.foundationDef}' at {pos} in layout {layout.defName}.");
+                    }
+
+                    // Things
+                    if (cell.things != null && cell.things.Count > 0)
+                    {
+                        foreach (var t in cell.things)
+                        {
+                            if (t == null || string.IsNullOrEmpty(t.defName))
+                                continue;
+
+                            var thingDef = ResolveThing(t.defName, thingCache);
+                            if (!IsValidForSketch(thingDef))
+                            {
+                                GravshipLogger.Warning($"Skipping invalid thing '{t.defName}' at {pos}");
+                                continue;
+                            }
+
+                            var stuffDef = ResolveThing(t.stuffDef, thingCache); // may be null
+                            var rot = new Rot4(t.rotInteger);
+
+                            if (stuffDef != null && !thingDef.MadeFromStuff)
+                                stuffDef = null;
+
+                            sketch.AddThing(thingDef, pos, rot, stuffDef, 1, null, null, false);
+                            thingCount++;
+
+                            GravshipLogger.Message($"Added {thingDef.defName} (stuff={(stuffDef != null ? stuffDef.defName : "null")}) at {pos} rot={rot}");
+                        }
+                    }
+
+                    if (cell.HasAnyData) cellCount++;
+                }
+            }
+
+            GravshipLogger.Message($"Finished building sketch. Structural cells={cellCount}, things added={thingCount}.");
         }
 
         // ─────────────────────────────────────────────
