@@ -161,9 +161,37 @@ namespace GravshipExport
             }
 
             GravshipLogger.Message($"✅ Terrain pass complete — applied={appliedCount}, skipped={skippedCount}, rotation={relRot}.");
+            LongEventHandler.ExecuteWhenFinished(() =>
+            {
+                UnfogEntireMap(map);
+            });
         }
 
+        private static void UnfogEntireMap(Map map)
+        {
+            try
+            {
+                var fogGrid = map.fogGrid;
+                if (fogGrid == null)
+                {
+                    GravshipLogger.Warning("UnfogEntireMap: fogGrid is null.");
+                    return;
+                }
 
+                int count = 0;
+                foreach (IntVec3 cell in map.AllCells)
+                {
+                    fogGrid.Unfog(cell);
+                    count++;
+                }
+
+                GravshipLogger.Message($"✅ UnfogEntireMap: cleared fog from all {count} cells.");
+            }
+            catch (Exception ex)
+            {
+                GravshipLogger.Error($"UnfogEntireMap failed: {ex}");
+            }
+        }
 
         // 🔁 Transpiler: replace default resolver with our custom one
         static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
