@@ -15,15 +15,6 @@ namespace GravshipExport
     /// </summary>
     internal static class ShipPreviewRenderer
     {
-        // ──────────────────────────────────────────────────────────────────────────
-        // Toggle verbose logs for this class only.
-        private const bool DebugLogs = false;
-
-        private static void DMsg(string msg) { if (DebugLogs) Log.Message("[GravshipExport] " + msg); }
-        private static void DWarn(string msg) { if (DebugLogs) Log.Warning("[GravshipExport] " + msg); }
-        private static void DErr(string msg) { Log.Error("[GravshipExport] " + msg); } // errors always log
-        // ──────────────────────────────────────────────────────────────────────────
-
         /// <summary>
         /// Convenience entry point: saves to Config/GravshipExport/&lt;shipName&gt;.png
         /// </summary>
@@ -55,7 +46,7 @@ namespace GravshipExport
             {
                 if (engine?.Map == null || layout == null || layout.width <= 0 || layout.height <= 0)
                 {
-                    DWarn("ShipPreviewRenderer: invalid inputs.");
+                    GravshipLogger.Warning("ShipPreviewRenderer: invalid inputs.");
                     return;
                 }
 
@@ -76,7 +67,7 @@ namespace GravshipExport
                 int cellsH = maxZ - minZ + 1;
                 if (cellsW <= 0 || cellsH <= 0)
                 {
-                    DWarn("ShipPreviewRenderer: computed empty bounds.");
+                    GravshipLogger.Warning("ShipPreviewRenderer: computed empty bounds.");
                     return;
                 }
 
@@ -89,9 +80,9 @@ namespace GravshipExport
                 float centerX = (minX + maxX + 1) * 0.5f;
                 float centerZ = (minZ + maxZ + 1) * 0.5f;
 
-                DMsg($"Bounds: ({minX},{minZ})–({maxX},{maxZ})  Cells {cellsW}x{cellsH}  | ppc {ppc}  => {widthPx}x{heightPx}px");
+                GravshipLogger.Message($"Preview bounds: ({minX},{minZ})–({maxX},{maxZ})  Cells {cellsW}x{cellsH}  | ppc {ppc}  => {widthPx}x{heightPx}px");
 
-                // Ensure the map meshes are up to date (sections, etc.)
+                // Ensure the map meshes are up to date
                 map.mapDrawer.RegenerateEverythingNow();
 
                 // Spin up a temporary runner to do the capture at end-of-frame.
@@ -112,12 +103,12 @@ namespace GravshipExport
             }
             catch (Exception ex)
             {
-                DErr("ShipPreviewRenderer.Capture failed: " + ex);
+                GravshipLogger.Error("ShipPreviewRenderer.Capture failed: " + ex);
             }
         }
 
         /// <summary>
-        /// Tiny helper MonoBehaviour that performs the capture at end-of-frame
+        /// MonoBehaviour that performs the capture at end-of-frame
         /// when RimWorld has actually drawn the map.
         /// </summary>
         private sealed class ShipPreviewCaptureRunner : MonoBehaviour
@@ -134,11 +125,10 @@ namespace GravshipExport
             }
 
             private Args a;
-
-            // Backup camera & driver state
             private Camera camera;
             private CameraDriver camDriver;
 
+            // Backup camera state
             private CameraClearFlags clearFlagsOld;
             private Color bgOld;
             private bool orthoOld;
@@ -150,29 +140,27 @@ namespace GravshipExport
             private Vector3 posOld;
             private bool driverEnabledOld;
             private RememberedCameraPos oldRemembered;
-
             private List<object> previousSelection;
 
             public void Begin(Args args)
             {
                 a = args;
 
-                // Save and clear current selection to prevent overlays
+                // Save and clear selection to prevent overlays
                 previousSelection = new List<object>(Find.Selector.SelectedObjectsListForReading);
                 Find.Selector.ClearSelection();
 
-                // Use the REAL map camera RimWorld draws with
                 camera = Find.Camera ?? Camera.main;
                 camDriver = Find.CameraDriver;
 
                 if (camera == null || camDriver == null)
                 {
-                    DErr("No valid map camera / driver found.");
+                    GravshipLogger.Error("No valid map camera / driver found.");
                     Destroy(gameObject);
                     return;
                 }
 
-                // Back up camera/driver state
+                // Backup state
                 clearFlagsOld = camera.clearFlags;
                 bgOld = camera.backgroundColor;
                 orthoOld = camera.orthographic;
@@ -183,37 +171,33 @@ namespace GravshipExport
                 rtOld = camera.targetTexture;
                 rotOld = camera.transform.rotation;
                 posOld = camera.transform.position;
-
                 driverEnabledOld = camDriver.enabled;
                 oldRemembered = a.Map.rememberedCameraPos;
 
-                // Move & configure camera for top-down capture
+                // Configure camera
                 try
                 {
-                    camDriver.enabled = false; // take control temporarily
-
+                    camDriver.enabled = false;
                     camera.orthographic = true;
                     camera.orthographicSize = a.CellsH * 0.5f + 1f;
                     camera.transform.position = new Vector3(a.CenterX, 50f, a.CenterZ);
                     camera.transform.rotation = Quaternion.Euler(90f, 0f, 0f);
-
                     camera.clearFlags = CameraClearFlags.SolidColor;
-                    camera.backgroundColor = Color.clear; // transparent background
+                    camera.backgroundColor = Color.clear;
                     camera.nearClipPlane = 0.1f;
                     camera.farClipPlane = 500f;
-                    camera.cullingMask = -1; // everything
+                    camera.cullingMask = -1;
 
-                    DMsg($"Camera setup: pos=({camera.transform.position.x},{camera.transform.position.y},{camera.transform.position.z}) orthoSize={camera.orthographicSize}");
+                    GravshipLogger.Message($"Camera setup: pos=({camera.transform.position.x},{camera.transform.position.y},{camera.transform.position.z}) orthoSize={camera.orthographicSize}");
                 }
                 catch (Exception ex)
                 {
-                    DErr("Failed to set up camera: " + ex);
+                    GravshipLogger.Error("Failed to set up camera: " + ex);
                     Restore();
                     Destroy(gameObject);
                     return;
                 }
 
-                // Kick the coroutine; capture happens after RimWorld draws this frame.
                 StartCoroutine(CaptureCoroutine());
             }
 
@@ -228,7 +212,7 @@ namespace GravshipExport
                         foreach (var obj in previousSelection)
                         {
                             try { Find.Selector.Select(obj); }
-                            catch (Exception selEx) { DWarn($"Failed to restore selection for {obj}: {selEx.Message}"); }
+                            catch (Exception selEx) { GravshipLogger.Warning($"Failed to restore selection for {obj}: {selEx.Message}"); }
                         }
                     }
 
@@ -254,13 +238,12 @@ namespace GravshipExport
                 }
                 catch (Exception ex)
                 {
-                    DErr("Failed to restore camera/driver: " + ex);
+                    GravshipLogger.Error("Failed to restore camera/driver: " + ex);
                 }
             }
 
             private IEnumerator CaptureCoroutine()
             {
-                // Let RimWorld finish drawing the current frame
                 yield return new WaitForEndOfFrame();
 
                 RenderTexture rt = null;
@@ -270,40 +253,35 @@ namespace GravshipExport
                 {
                     rt = RenderTexture.GetTemporary(a.WidthPx, a.HeightPx, 24, RenderTextureFormat.ARGB32);
 
-                    // Render the scene directly into our RT
                     var prevTarget = camera.targetTexture;
                     var prevActive = RenderTexture.active;
 
                     camera.targetTexture = rt;
                     RenderTexture.active = rt;
-
                     camera.Render();
 
-                    // Read pixels from RT (once)
                     tex = new Texture2D(a.WidthPx, a.HeightPx, TextureFormat.RGBA32, false);
                     tex.ReadPixels(new Rect(0, 0, a.WidthPx, a.HeightPx), 0, 0, false);
                     tex.Apply(false, false);
 
-                    // Restore previous state
                     RenderTexture.active = prevActive;
                     camera.targetTexture = prevTarget;
 
-                    // Downscale by 50% before saving
                     tex = DownscaleTexture(tex, 0.5f);
 
                     SaveTextureWithPngcs(tex, a.OutputPath);
-                    DMsg($"✅ Ship preview captured: {a.OutputPath}");
+                    GravshipLogger.Message($"✅ Ship preview captured: {a.OutputPath}");
                 }
                 catch (Exception ex)
                 {
-                    DErr("Capture failed: " + ex);
+                    GravshipLogger.Error("Capture failed: " + ex);
                 }
                 finally
                 {
                     if (tex != null) Destroy(tex);
                     if (rt != null) RenderTexture.ReleaseTemporary(rt);
                     Restore();
-                    Destroy(gameObject); // clean up the runner
+                    Destroy(gameObject);
                 }
             }
         }
@@ -351,7 +329,7 @@ namespace GravshipExport
                     for (int y = 0; y < h; y++)
                     {
                         var line = new ImageLine(png.ImgInfo);
-                        int rowStart = (h - 1 - y) * w; // flip vertically
+                        int rowStart = (h - 1 - y) * w;
                         for (int x = 0; x < w; x++)
                         {
                             Color32 c = pixels[rowStart + x];
@@ -367,11 +345,11 @@ namespace GravshipExport
                     png.End();
                 }
 
-                DMsg("✅ PNG written via Pngcs: " + path);
+                GravshipLogger.Message("✅ PNG written via Pngcs: " + path);
             }
             catch (Exception ex)
             {
-                DErr("Failed to write PNG: " + ex);
+                GravshipLogger.Error("Failed to write PNG: " + ex);
             }
         }
     }

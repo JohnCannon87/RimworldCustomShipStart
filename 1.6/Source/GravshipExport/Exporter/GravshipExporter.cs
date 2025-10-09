@@ -14,16 +14,16 @@ namespace GravshipExport
         {
             try
             {
-                //jcLog.Message("[GravshipExport] ExportV2 started.");
+                GravshipLogger.Message("ExportV2 started.");
 
                 var layout = BuildLayout(engine);
                 if (layout == null)
                 {
-                    Log.Warning("[GravshipExport] ExportV2 failed: layout was null.");
+                    GravshipLogger.Warning("ExportV2 failed: layout was null.");
                     return;
                 }
 
-                // Use provided name if available
+                // ✅ Use provided name if available
                 if (!string.IsNullOrEmpty(customName))
                 {
                     layout.defName = customName.Replace(" ", "_");
@@ -36,30 +36,28 @@ namespace GravshipExport
                     layout.description = customDescription.Trim();
                 }
 
-
                 string folder = Path.Combine(GenFilePaths.ConfigFolderPath, "GravshipExport");
                 if (!Directory.Exists(folder))
                     Directory.CreateDirectory(folder);
 
                 string file = Path.Combine(folder, layout.defName + ".xml");
                 string previewFile = Path.Combine(folder, layout.defName + ".png");
+
                 DirectXmlSaver.SaveDataObject(layout, file);
                 ShipPreviewRenderer.Capture(engine, layout, previewFile);
 
                 // ✅ Show helpful popup guide after successful export
                 string configPath = Path.Combine(GenFilePaths.ConfigFolderPath, "GravshipExport");
-
-                // ✅ Show helpful popup guide with clickable folder button
                 Find.WindowStack.Add(new Dialog_ShipExportHelp(configPath, layout.defName));
 
                 // ✅ Immediately refresh the loaded ship list so new export is visible in UI
                 ShipManager.Refresh();
 
-                //jcLog.Message($"[GravshipExport] ExportV2 complete! Saved to {file}");
+                GravshipLogger.Message($"ExportV2 complete! Saved to {file}");
             }
             catch (Exception ex)
             {
-                Log.Error($"[GravshipExport] ExportV2 crashed: {ex}");
+                GravshipLogger.Error($"ExportV2 crashed: {ex}");
             }
         }
 
@@ -69,7 +67,7 @@ namespace GravshipExport
             var cells = engine.AllConnectedSubstructure.ToList();
             if (cells.Count == 0)
             {
-                Log.Warning("[GravshipExport] Tried to export a gravship with no substructure.");
+                GravshipLogger.Warning("Tried to export a gravship with no substructure.");
                 return null;
             }
 
@@ -81,7 +79,7 @@ namespace GravshipExport
             int width = maxX - minX + 1;
             int height = maxZ - minZ + 1;
 
-            //jcLog.Message($"[GravshipExport] ExportV2 bounding box: {width}x{height} (x[{minX}-{maxX}], z[{minZ}-{maxZ}])");
+            GravshipLogger.Message($"ExportV2 bounding box: {width}x{height} (x[{minX}-{maxX}], z[{minZ}-{maxZ}])");
 
             var rows = new List<List<ShipCell>>();
 
@@ -100,15 +98,14 @@ namespace GravshipExport
 
                     var shipCell = new ShipCell();
 
-                    // Terrain
+                    // ✅ Save the visible floor/terrain if it's not just substructure
                     TerrainDef terrain = cell.GetTerrain(map);
                     if (terrain != null && !terrain.IsSubstructure)
                     {
-                        // Save the visible floor/terrain if it's not just substructure
                         shipCell.terrainDef = terrain.defName;
                     }
 
-                    // Things
+                    // ✅ Collect buildings and structures
                     bool hasStructures = false;
                     foreach (var thing in cell.GetThingList(map))
                     {
@@ -139,15 +136,14 @@ namespace GravshipExport
 
                         shipCell.things.Add(entry);
 
-                        /*Log.Message($"[GravshipExport] Exported thing {thing.def.defName} " +
-                                    $"at world=({thing.Position.x},{thing.Position.z}) " +
-                                    $"grid=({x - minX},{z - minZ}) " +
-                                    $"size={thing.def.size} rot={thing.Rotation.AsInt} stuff={stuffName ?? "null"}");*/
+                        GravshipLogger.Message(
+                            $"Exported thing {thing.def.defName} at world=({thing.Position.x},{thing.Position.z}) " +
+                            $"grid=({x - minX},{z - minZ}) size={thing.def.size} rot={thing.Rotation.AsInt} stuff={stuffName ?? "null"}"
+                        );
                     }
 
-                    // 🔎 Smart foundation inference
+                    // ✅ Smart foundation inference
                     bool shouldHaveFoundation = false;
-
                     if (terrain != null && (terrain.isFoundation || terrain.IsSubstructure))
                     {
                         shouldHaveFoundation = true;
@@ -171,7 +167,6 @@ namespace GravshipExport
                 rows.Add(row);
             }
 
-
             return new ShipLayoutDefV2
             {
                 defName = "ExportedShip_" + Find.TickManager.TicksGame,
@@ -180,7 +175,7 @@ namespace GravshipExport
                 width = width,
                 height = height,
                 gravEngineX = engine.Position.x - minX,
-                gravEngineZ = engine.Position.z - minZ // no flip needed now
+                gravEngineZ = engine.Position.z - minZ
             };
         }
     }

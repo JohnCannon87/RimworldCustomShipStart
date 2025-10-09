@@ -20,7 +20,7 @@ namespace GravshipExport
             var settings = LoadedModManager.GetMod<GravshipExportMod>()?.GetSettings<GravshipExportModSettings>();
             ShipLayoutDefV2 ship = null;
 
-            // 🎲 Check if random mode is enabled and pool is valid
+            // 🎲 Random selection mode
             if (settings?.randomSelectionEnabled == true && settings.randomShipPool != null && settings.randomShipPool.Count > 0)
             {
                 var pool = settings.randomShipPool
@@ -31,21 +31,25 @@ namespace GravshipExport
                 if (pool.Count > 0)
                 {
                     ship = pool.RandomElement();
-                    Log.Message($"[GravshipExport] 🎲 Random mode active — selected random ship: {ship.defName}");
+                    GravshipLogger.Message($"🎲 Random ship selection active — randomly selected: {ship.defName}");
                 }
                 else
                 {
-                    Log.Warning("[GravshipExport] Random mode was enabled but no valid ships were found in the pool.");
+                    GravshipLogger.Warning("Random mode was enabled, but no valid ships were found in the pool.");
                 }
             }
 
-            // 🛠️ If random mode not active or no valid ship found, fall back to last used ship
+            // 🛠️ Fallback: last used ship
             if (ship == null)
             {
                 ship = settings?.lastUsedShip;
+                if (ship != null)
+                {
+                    GravshipLogger.Message($"Using last used ship layout: {ship.defName}");
+                }
             }
 
-            // ✅ Final fallback if nothing is selected
+            // ✅ Final fallback: built-in default
             if (ship == null)
             {
                 ship = DefDatabase<ShipLayoutDefV2>.GetNamedSilentFail("Odyssey_Original_Ship");
@@ -53,19 +57,21 @@ namespace GravshipExport
                 {
                     settings.lastUsedShip = ship;
                     settings.Write();
+                    GravshipLogger.Message($"Falling back to default ship: {ship.defName}");
                 }
 
                 if (ship == null)
                 {
-                    Log.Warning("[GravshipExport] ❌ Could not find any ship to spawn. Generation will fail.");
+                    GravshipLogger.Warning("❌ Could not find any ship layout to spawn. Gravship generation will fail.");
                     return;
                 }
             }
 
-            // 🚀 Spawn the ship
-            Log.Message($"[GravshipExport] Using ship layout: {ship.defName}");
+            // 🚀 Build and merge the final sketch
+            GravshipLogger.Message($"🚀 Finalizing: building sketch from ship layout '{ship.defName}'...");
             Sketch built = ShipSketchBuilder.BuildFromLayout(ship);
             parms.sketch.Merge(built);
+            GravshipLogger.Message($"✅ Ship '{ship.defName}' merged successfully into sketch.");
         }
     }
 }

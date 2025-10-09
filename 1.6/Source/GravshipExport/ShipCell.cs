@@ -26,5 +26,19 @@ namespace GravshipExport
             Scribe_Values.Look(ref terrainStuff, "terrainStuff");
             Scribe_Collections.Look(ref things, "things", LookMode.Deep);
         }
+        public override string ToString()
+        {
+            string thingsStr = (things != null && things.Count > 0)
+                ? string.Join(", ", things)
+                : "none";
+
+            return $"ShipCell(" +
+                   $"foundation={foundationDef ?? "none"}" +
+                   (foundationStuff != null ? $":{foundationStuff}" : "") +
+                   $", terrain={terrainDef ?? "none"}" +
+                   (terrainStuff != null ? $":{terrainStuff}" : "") +
+                   $", things=[{thingsStr}])";
+        }
+
     }
 }

@@ -14,6 +14,13 @@ namespace GravshipExport
             Scribe_Values.Look(ref stuffDef, "stuffDef");
             Scribe_Values.Look(ref rotInteger, "rotInteger");
         }
+        public override string ToString()
+        {
+            return $"{defName ?? "unknown"}" +
+                   (stuffDef != null ? $":{stuffDef}" : "") +
+                   $"(rot={rotInteger})";
+        }
+
     }
 
 }

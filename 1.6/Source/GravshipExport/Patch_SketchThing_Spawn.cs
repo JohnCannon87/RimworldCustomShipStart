@@ -8,7 +8,7 @@ namespace GravshipExport
     [HarmonyPatch(typeof(SketchThing), "Spawn")]
     public static class Patch_SketchThing_Spawn
     {
-        // The method actually returns bool
+        // The original Spawn method returns a bool
         public static bool Prefix(
             SketchThing __instance,
             IntVec3 at,
@@ -24,31 +24,45 @@ namespace GravshipExport
         {
             try
             {
-                // Let vanilla try first
+                // ✅ Let vanilla handle it first. If it throws, we'll catch below.
                 return true;
             }
             catch (System.Exception ex)
             {
-                Log.Warning($"[GravshipExport] Suppressed spawn exception for {__instance?.def?.defName ?? "unknown"} at {at}. Forcing spawn. Exception: {ex}");
+                GravshipLogger.Warning(
+                    $"Suppressed spawn exception for {__instance?.def?.defName ?? "unknown"} at {at}. " +
+                    $"Attempting forced spawn instead. Exception: {ex}"
+                );
 
                 try
                 {
-                    // Manually spawn the thing
+                    // ✅ Fallback: manually spawn the thing
                     Thing forcedThing = ThingMaker.MakeThing(__instance.def, __instance.stuff);
                     forcedThing.SetFaction(faction);
-                    GenSpawn.Spawn(forcedThing, at, map, __instance.rot, wipeIfCollides ? WipeMode.Vanish : WipeMode.VanishOrMoveAside);
+
+                    GenSpawn.Spawn(
+                        forcedThing,
+                        at,
+                        map,
+                        __instance.rot,
+                        wipeIfCollides ? WipeMode.Vanish : WipeMode.VanishOrMoveAside
+                    );
 
                     spawnedThings?.Add(forcedThing);
 
-                    __result = true; // success
+                    __result = true;
+                    GravshipLogger.Message($"Successfully force-spawned {forcedThing.def.defName} at {at}.");
                 }
                 catch (System.Exception innerEx)
                 {
-                    Log.Error($"[GravshipExport] Failed to force-spawn {__instance?.def?.defName}: {innerEx}");
-                    __result = false; // failed
+                    GravshipLogger.Error(
+                        $"Failed to force-spawn {__instance?.def?.defName ?? "unknown"} at {at}: {innerEx}"
+                    );
+                    __result = false;
                 }
 
-                return false; // skip vanilla
+                // ✅ Skip vanilla spawn if we handled it here
+                return false;
             }
         }
     }

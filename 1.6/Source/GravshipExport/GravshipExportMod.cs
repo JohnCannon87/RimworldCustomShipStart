@@ -7,8 +7,6 @@ namespace GravshipExport
 {
     public class GravshipExportMod : Mod
     {
-        private const bool DebugLogs = false;
-
         private readonly ShipListView shipListView;
         private readonly ShipExportController exportController;
 
@@ -22,7 +20,7 @@ namespace GravshipExport
             shipListView = new ShipListView(
                 () => ShipListBuilder.Build(Content),
                 new ShipRowDrawer());
-            exportController = new ShipExportController(Content, DebugLogs);
+            exportController = new ShipExportController(Content, settings.enableDebugLogging);
         }
 
         public override string SettingsCategory() => "Gravship Export";
@@ -31,13 +29,18 @@ namespace GravshipExport
         {
             if (!didInitialRefresh)
             {
-                if (DebugLogs) Log.Message("[GravshipExport/UI] Opening settings — performing initial refresh…");
+                if (settings.enableDebugLogging) Log.Message("[GravshipExport/UI] Opening settings — performing initial refresh…");
                 ShipManager.Refresh();
                 didInitialRefresh = true;
                 TryRestoreLastUsedShip();
             }
 
             float y = inRect.y;
+
+            // 🪵 Logging toggle (always shown at top)
+            Rect logToggleRect = new Rect(inRect.x, y, inRect.width, 28f);
+            Widgets.CheckboxLabeled(logToggleRect, "🪵 Enable Debug Logging", ref settings.enableDebugLogging);
+            y += 32f;
 
             // 🎲 Random mode toggle
             Rect randomToggleRect = new Rect(inRect.x, y, inRect.width, 28f);
@@ -57,16 +60,19 @@ namespace GravshipExport
             Widgets.Label(infoRect, infoLine);
             y += 28f;
 
-            // --- Search header (much smaller now) ---
+            // --- Search header ---
             ShipLayoutDefV2 headerShip = settings.randomSelectionEnabled ? null : settings.lastUsedShip;
-            float headerHeight = 38f; // shrunk from ~90px
+            float headerHeight = 38f;
             var headerRect = new Rect(inRect.x, y, inRect.width, headerHeight);
             ModHeaderView.Draw(headerRect, headerShip, ref searchText);
             y += headerHeight + 6f;
 
-            // --- Ship list fills all remaining space dynamically ---
+            // --- Ship list ---
             var listRect = new Rect(inRect.x, y, inRect.width, inRect.height - y - 6f);
             DrawShipList(listRect);
+
+            // 📌 Save when user changes toggles
+            WriteSettings();
         }
 
         private void TryRestoreLastUsedShip()
@@ -115,6 +121,7 @@ namespace GravshipExport
                 $"Are you sure you want to delete '{label}'?\n\nThis cannot be undone.",
                 () =>
                 {
+                    if (settings.enableDebugLogging) Log.Message($"[GravshipExport/Delete] Deleting ship file: {item.ExportFilename}");
                     exportController.DeleteShipFile(item.ExportFilename);
                     ShipManager.Refresh();
                 }));
@@ -124,6 +131,8 @@ namespace GravshipExport
         {
             if (item?.Ship == null)
                 return;
+
+            if (settings.enableDebugLogging) Log.Message($"[GravshipExport/Apply] Applying ship: {item.Ship.label}");
 
             settings.lastUsedShip = item.Ship;
 
@@ -141,6 +150,8 @@ namespace GravshipExport
         {
             if (item?.Ship == null)
                 return;
+
+            if (settings.enableDebugLogging) Log.Message($"[GravshipExport/Export] Exporting ship: {item.Ship.label}");
 
             string suggestedName = $"Gravship_{(item.Ship.label ?? item.Ship.defName ?? "NewShip")}";
 

@@ -7,6 +7,9 @@ namespace GravshipExport
     {
         public ShipLayoutDefV2 lastUsedShip;
 
+        // 🪵 Logging toggle
+        public bool enableDebugLogging = false;
+
         // 🎲 New fields for random ship selection
         public bool randomSelectionEnabled = false;
         public List<string> randomShipPool = new List<string>();
@@ -31,6 +34,9 @@ namespace GravshipExport
             {
                 lastUsedShip = DefDatabase<ShipLayoutDefV2>.GetNamedSilentFail("Odyssey_Original_Ship");
             }
+
+            // 🪵 Save/load logging state
+            Scribe_Values.Look(ref enableDebugLogging, "enableDebugLogging", false);
 
             // 🎲 Save/load random mode state
             Scribe_Values.Look(ref randomSelectionEnabled, "randomSelectionEnabled", false);
