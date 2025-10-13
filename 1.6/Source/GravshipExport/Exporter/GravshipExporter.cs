@@ -134,6 +134,12 @@ namespace GravshipExport
                             rotInteger = thing.Rotation.AsInt
                         };
 
+                        // ✅ Capture quality if applicable
+                        if (thing.TryGetComp<CompQuality>() is CompQuality qualityComp)
+                        {
+                            entry.quality = qualityComp.Quality.ToString();
+                        }
+
                         shipCell.things.Add(entry);
 
                         GravshipLogger.Message(

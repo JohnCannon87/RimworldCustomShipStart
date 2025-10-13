@@ -98,10 +98,27 @@ namespace GravshipExport
                             if (stuffDef != null && !thingDef.MadeFromStuff)
                                 stuffDef = null;
 
-                            sketch.AddThing(thingDef, pos, rot, stuffDef, 1, null, null, false);
+                            QualityCategory? quality = null;
+
+                            // ✅ Parse quality string if present
+                            if (!string.IsNullOrEmpty(t.quality))
+                            {
+                                if (Enum.TryParse(t.quality, out QualityCategory parsed))
+                                {
+                                    quality = parsed;
+                                }
+                                else
+                                {
+                                    GravshipLogger.Warning($"Unknown quality '{t.quality}' for thing {t.defName}");
+                                }
+                            }
+
+                            sketch.AddThing(thingDef, pos, rot, stuffDef, 1, quality, null, false);
                             thingCount++;
 
-                            GravshipLogger.Message($"Added {thingDef.defName} (stuff={(stuffDef != null ? stuffDef.defName : "null")}) at {pos} rot={rot}");
+                            GravshipLogger.Message(
+                                $"Added {thingDef.defName} (stuff={(stuffDef != null ? stuffDef.defName : "null")}, quality={(quality?.ToString() ?? "none")}) at {pos} rot={rot}"
+                            );
                         }
                     }
 
@@ -205,11 +222,17 @@ namespace GravshipExport
             var comp = ThingDefOf.GravEngine?.comps?.FirstOrDefault(c => c is CompProperties_SubstructureFootprint) as CompProperties_SubstructureFootprint;
             if (comp != null)
             {
-                if (originalRange < 0f)
-                    originalRange = comp.radius;
+                if (comp.radius < 79)
+                {
+                    if (originalRange < 0f)
+                        originalRange = comp.radius;
 
-                comp.radius = 79;
-                GravshipLogger.Message($"Temporarily expanded GravEngine facility range from {originalRange} → {comp.radius}");
+                    comp.radius = 79;
+                    GravshipLogger.Message($"Temporarily expanded GravEngine facility range from {originalRange} → {comp.radius}");
+                }
+                else { 
+                    GravshipLogger.Message($"No need to temporarily expand GravEngine facility range, range is already over 79 and is: {comp.radius}");
+                }
             }
             else
             {
