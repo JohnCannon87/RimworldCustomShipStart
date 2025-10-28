@@ -23,6 +23,8 @@ namespace GravshipExport
         /// </summary>
         public static Sketch BuildFromLayout(ShipLayoutDefV2 layout)
         {
+            GravshipLogger.Message($"[GravshipExport] BuildFromLayout enter: {layout?.defName}\n{Environment.StackTrace}");
+
             if (layout == null)
             {
                 GravshipLogger.Error("BuildFromLayout: layout is null.");
@@ -36,6 +38,9 @@ namespace GravshipExport
 
             GravshipLogger.Message($"Building layout '{layout.defName}' size {layout.width}x{layout.height}, rows={layout.rows.Count}.");
             GravshipLogger.Message($"Engine offset: ({layout.gravEngineX}, {layout.gravEngineZ}).");
+
+            if (layout == null) return new Sketch();
+            if (ShipSketchCache.TryGet(layout, out var cached)) return cached;
 
             var sketch = new Sketch();
 
@@ -166,7 +171,8 @@ namespace GravshipExport
                 GravshipLogger.Warning("Could not find TerrainDef 'MechanoidPlatform' — perimeter not added.");
             }
 
-            return sketch;
+            ShipSketchCache.Put(layout, sketch);
+            return sketch.DeepCopy();
         }
 
         // ─────────────────────────────────────────────

@@ -98,7 +98,10 @@
     <Compile Include="GravshipExport\HarmonyInit.cs" />
     <Compile Include="GravshipExport\HarmonyPatch_DoGravship.cs" />
     <Compile Include="GravshipExport\HarmonyPatch_SketchRotate.cs" />
+    <Compile Include="GravshipExport\Harmony\Patch_ContentFinder_Get.cs" />
+    <Compile Include="GravshipExport\Importer\Patch_Sketch_Spawn_Log.cs" />
     <Compile Include="GravshipExport\Importer\ShipSketchBuilder.cs" />
+    <Compile Include="GravshipExport\Importer\ShipSketchCache.cs" />
     <Compile Include="GravshipExport\ModHeaderView.cs" />
     <Compile Include="GravshipExport\Patch_PlaceWorker_ShowTurretRadius.cs" />
     <Compile Include="GravshipExport\Patch_SketchThing_Spawn.cs" />
@@ -142,7 +145,7 @@
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties BuildVersion_StartDate="2000/1/1" BuildVersion_BuildVersioningStyle="None.None.Increment.TimeStamp" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_UpdateFileVersion="True" />
+      <UserProperties BuildVersion_UpdateFileVersion="True" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_BuildVersioningStyle="None.None.Increment.TimeStamp" BuildVersion_StartDate="2000/1/1" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

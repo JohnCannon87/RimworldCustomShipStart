@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using RimWorld;
 using RimWorld.SketchGen;
 using Verse;
@@ -14,6 +15,8 @@ namespace GravshipExport
 
         protected override void ResolveInt(SketchResolveParams parms)
         {
+            GravshipLogger.Message("[GravshipExport] Resolver.ResolveInt enter\n" + Environment.StackTrace);
+
             if (!ModLister.CheckOdyssey("Ancient launch pad"))
                 return;
 
