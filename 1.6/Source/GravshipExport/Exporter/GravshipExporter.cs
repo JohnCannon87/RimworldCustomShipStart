@@ -71,10 +71,11 @@ namespace GravshipExport
                 return null;
             }
 
-            int minX = cells.Min(c => c.x);
-            int maxX = cells.Max(c => c.x);
-            int minZ = cells.Min(c => c.z);
-            int maxZ = cells.Max(c => c.z);
+            // Expand bounds by one cell around the ship to include external attachments
+            int minX = cells.Min(c => c.x) - 1;
+            int maxX = cells.Max(c => c.x) + 1;
+            int minZ = cells.Min(c => c.z) - 1;
+            int maxZ = cells.Max(c => c.z) + 1;
 
             int width = maxX - minX + 1;
             int height = maxZ - minZ + 1;
@@ -83,37 +84,46 @@ namespace GravshipExport
 
             var rows = new List<List<ShipCell>>();
 
-            // bottom → top (minZ first)
+            // build fast lookup of hull cells
+            var hull = new HashSet<IntVec3>(cells);
+
+            // precompute attachment cells: all 8 neighbours of hull
+            var attachmentCells = new HashSet<IntVec3>();
+            foreach (var c in hull)
+            {
+                foreach (var d in GenAdj.AdjacentCellsAndInside)
+                {
+                    var n = c + d;
+                    if (!hull.Contains(n) && n.InBounds(map))
+                        attachmentCells.Add(n);
+                }
+            }
+
+            // build the normal ship grid
             for (int z = minZ; z <= maxZ; z++)
             {
                 var row = new List<ShipCell>();
                 for (int x = minX; x <= maxX; x++)
                 {
                     var cell = new IntVec3(x, 0, z);
-                    if (!cells.Contains(cell))
+                    if (!hull.Contains(cell))
                     {
                         row.Add(null);
                         continue;
                     }
 
                     var shipCell = new ShipCell();
-
-                    // ✅ Save the visible floor/terrain if it's not just substructure
                     TerrainDef terrain = cell.GetTerrain(map);
                     if (terrain != null && !terrain.IsSubstructure)
-                    {
                         shipCell.terrainDef = terrain.defName;
-                    }
 
-                    // ✅ Collect buildings and structures
                     bool hasStructures = false;
                     foreach (var thing in cell.GetThingList(map))
                     {
                         if (thing.def == engine.def) continue;
                         if (thing is Pawn) continue;
-
-                        // Skip non-buildings / non-structures / loose items
-                        if (thing.def.category != ThingCategory.Building && thing.def.category != ThingCategory.Item)
+                        if (thing.def.category != ThingCategory.Building &&
+                            thing.def.category != ThingCategory.Item)
                             continue;
                         if (thing.def.category == ThingCategory.Item)
                             continue;
@@ -123,9 +133,9 @@ namespace GravshipExport
 
                         hasStructures = true;
 
-                        string stuffName = null;
-                        if (thing.def.MadeFromStuff && thing.Stuff != null)
-                            stuffName = thing.Stuff.defName;
+                        string stuffName = thing.def.MadeFromStuff && thing.Stuff != null
+                            ? thing.Stuff.defName
+                            : null;
 
                         var entry = new ShipThingEntry
                         {
@@ -134,43 +144,63 @@ namespace GravshipExport
                             rotInteger = thing.Rotation.AsInt
                         };
 
-                        // ✅ Capture quality if applicable
-                        if (thing.TryGetComp<CompQuality>() is CompQuality qualityComp)
-                        {
-                            entry.quality = qualityComp.Quality.ToString();
-                        }
+                        if (thing.TryGetComp<CompQuality>() is CompQuality q)
+                            entry.quality = q.Quality.ToString();
 
                         shipCell.things.Add(entry);
-
-                        GravshipLogger.Message(
-                            $"Exported thing {thing.def.defName} at world=({thing.Position.x},{thing.Position.z}) " +
-                            $"grid=({x - minX},{z - minZ}) size={thing.def.size} rot={thing.Rotation.AsInt} stuff={stuffName ?? "null"}"
-                        );
+                        GravshipLogger.Message($"Exported thing {thing.def.defName} at {cell}");
                     }
 
-                    // ✅ Smart foundation inference
-                    bool shouldHaveFoundation = false;
-                    if (terrain != null && (terrain.isFoundation || terrain.IsSubstructure))
-                    {
-                        shouldHaveFoundation = true;
-                    }
-                    else if (hasStructures)
-                    {
-                        shouldHaveFoundation = true;
-                    }
-                    else if (terrain != null && (terrain.IsFloor || terrain.IsCarpet) && !terrain.natural && !terrain.IsSoil)
-                    {
-                        shouldHaveFoundation = true;
-                    }
-
+                    // foundations
+                    bool shouldHaveFoundation = terrain != null &&
+                        (terrain.isFoundation || terrain.IsSubstructure || hasStructures ||
+                         (terrain.IsFloor || terrain.IsCarpet) && !terrain.natural && !terrain.IsSoil);
                     if (shouldHaveFoundation)
-                    {
                         shipCell.foundationDef = "Substructure";
-                    }
 
                     row.Add(shipCell.HasAnyData ? shipCell : null);
                 }
                 rows.Add(row);
+            }
+
+            // 🟩 Handle external attachments
+            foreach (var pos in attachmentCells)
+            {
+                foreach (var thing in pos.GetThingList(map))
+                {
+                    var def = thing.def;
+                    if (def?.building?.isAttachment != true)
+                        continue;
+
+                    string stuffName = def.MadeFromStuff && thing.Stuff != null ? thing.Stuff.defName : null;
+
+                    var entry = new ShipThingEntry
+                    {
+                        defName = def.defName,
+                        stuffDef = stuffName,
+                        rotInteger = thing.Rotation.AsInt
+                    };
+
+                    if (thing.TryGetComp<CompQuality>() is CompQuality q)
+                        entry.quality = q.Quality.ToString();
+
+                    // Adjust relative grid position
+                    int gx = pos.x - minX;
+                    int gz = pos.z - minZ;
+
+                    // ✅ SAFETY CHECK
+                    if (gz < 0 || gz >= rows.Count || gx < 0 || gx >= rows[gz].Count)
+                    {
+                        GravshipLogger.Warning($"[AttachmentExport] Skipping {def.defName} at {pos}: out of bounds ({gx},{gz})");
+                        continue;
+                    }
+
+                    if (rows[gz][gx] == null)
+                        rows[gz][gx] = new ShipCell();
+
+                    rows[gz][gx].things.Add(entry);
+                    GravshipLogger.Message($"Exported attachment {def.defName} at {pos}");
+                }
             }
 
             return new ShipLayoutDefV2
@@ -184,5 +214,6 @@ namespace GravshipExport
                 gravEngineZ = engine.Position.z - minZ
             };
         }
+
     }
 }
