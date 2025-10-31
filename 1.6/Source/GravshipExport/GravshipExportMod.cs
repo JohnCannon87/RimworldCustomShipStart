@@ -17,9 +17,7 @@ namespace GravshipExport
         public GravshipExportMod(ModContentPack content) : base(content)
         {
             settings = GetSettings<GravshipExportModSettings>();
-            shipListView = new ShipListView(
-                () => ShipListBuilder.Build(Content),
-                new ShipRowDrawer());
+            shipListView = new ShipListView(new ShipRowDrawer());
             exportController = new ShipExportController(Content, settings.enableDebugLogging);
         }
 
@@ -29,7 +27,9 @@ namespace GravshipExport
         {
             if (!didInitialRefresh)
             {
-                if (settings.enableDebugLogging) Log.Message("[GravshipExport/UI] Opening settings — performing initial refresh…");
+                if (settings.enableDebugLogging)
+                    Log.Message("[GravshipExport/UI] Opening settings — performing initial refresh…");
+
                 ShipManager.Refresh();
                 didInitialRefresh = true;
                 TryRestoreLastUsedShip();
@@ -37,41 +37,21 @@ namespace GravshipExport
 
             float y = inRect.y;
 
-            // 🪵 Logging toggle (always shown at top)
+            // 🪵 Logging toggle
             Rect logToggleRect = new Rect(inRect.x, y, inRect.width, 28f);
             Widgets.CheckboxLabeled(logToggleRect, "🪵 Enable Debug Logging", ref settings.enableDebugLogging);
             y += 32f;
 
-            // 🎲 Random mode toggle
-            Rect randomToggleRect = new Rect(inRect.x, y, inRect.width, 28f);
-            Widgets.CheckboxLabeled(randomToggleRect, "🎲 Enable Random Ship Selection", ref settings.randomSelectionEnabled);
-            y += 32f;
-
-            // 📊 Dynamic info line (depends on mode)
-            string infoLine = settings.randomSelectionEnabled
-                ? (settings.randomShipPool?.Count > 0
-                    ? $"Ships in random pool: {settings.randomShipPool.Count}"
-                    : "⚠️ No ships selected for the random pool!")
-                : (settings.lastUsedShip != null
-                    ? $"Current ship: {settings.lastUsedShip.label ?? settings.lastUsedShip.defName}"
-                    : "No default ship selected.");
-
-            Rect infoRect = new Rect(inRect.x + 6f, y, inRect.width - 12f, 22f);
-            Widgets.Label(infoRect, infoLine);
-            y += 28f;
-
-            // --- Search header ---
-            ShipLayoutDefV2 headerShip = settings.randomSelectionEnabled ? null : settings.lastUsedShip;
+            // --- Header & Search bar ---
             float headerHeight = 38f;
             var headerRect = new Rect(inRect.x, y, inRect.width, headerHeight);
-            ModHeaderView.Draw(headerRect, headerShip, ref searchText);
+            ModHeaderView.Draw(headerRect, null, ref searchText);
             y += headerHeight + 6f;
 
             // --- Ship list ---
             var listRect = new Rect(inRect.x, y, inRect.width, inRect.height - y - 6f);
             DrawShipList(listRect);
 
-            // 📌 Save when user changes toggles
             WriteSettings();
         }
 
@@ -103,8 +83,8 @@ namespace GravshipExport
             var callbacks = new ShipListCallbacks
             {
                 DeleteRequested = HandleDeleteRequest,
-                ApplyRequested = HandleApplyRequest,
                 ExportRequested = HandleExportRequest
+                // ApplyRequested removed — selection now handled in Page_ChooseGravship
             };
 
             string currentKey = ShipSelectionHelper.GetCurrentSelectionKey(settings, ShipManager.LoadedShips);
@@ -117,33 +97,17 @@ namespace GravshipExport
                 return;
 
             string label = item.Ship?.label ?? item.ExportFilename;
+
             Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation(
                 $"Are you sure you want to delete '{label}'?\n\nThis cannot be undone.",
                 () =>
                 {
-                    if (settings.enableDebugLogging) Log.Message($"[GravshipExport/Delete] Deleting ship file: {item.ExportFilename}");
+                    if (settings.enableDebugLogging)
+                        Log.Message($"[GravshipExport/Delete] Deleting ship file: {item.ExportFilename}");
+
                     exportController.DeleteShipFile(item.ExportFilename);
                     ShipManager.Refresh();
                 }));
-        }
-
-        private void HandleApplyRequest(ShipListItem item)
-        {
-            if (item?.Ship == null)
-                return;
-
-            if (settings.enableDebugLogging) Log.Message($"[GravshipExport/Apply] Applying ship: {item.Ship.label}");
-
-            settings.lastUsedShip = item.Ship;
-
-            if (settings.randomSelectionEnabled)
-            {
-                settings.randomSelectionEnabled = false;
-                Messages.Message("[GravshipExport] Random ship selection disabled (manual ship chosen).", MessageTypeDefOf.NeutralEvent);
-            }
-
-            WriteSettings();
-            Messages.Message($"[GravshipExport] Ship '{item.Ship.label}' set as default.", MessageTypeDefOf.PositiveEvent, false);
         }
 
         private void HandleExportRequest(ShipListItem item)
@@ -151,7 +115,8 @@ namespace GravshipExport
             if (item?.Ship == null)
                 return;
 
-            if (settings.enableDebugLogging) Log.Message($"[GravshipExport/Export] Exporting ship: {item.Ship.label}");
+            if (settings.enableDebugLogging)
+                Log.Message($"[GravshipExport/Export] Exporting ship: {item.Ship.label}");
 
             string suggestedName = $"Gravship_{(item.Ship.label ?? item.Ship.defName ?? "NewShip")}";
 

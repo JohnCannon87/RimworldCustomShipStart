@@ -9,7 +9,6 @@ namespace GravshipExport
     {
         private const float RowPad = 4f;
         private const float DeleteButtonWidth = 32f;
-        private const float ApplyButtonWidth = 50f;
         private const float ExportButtonWidth = 50f;
         private const float InfoWidth = 300f;
         private const float SourceWidth = 200f;
@@ -47,9 +46,6 @@ namespace GravshipExport
 
             float rightX = rowRect.xMax - RowPad;
 
-            var applyRect = new Rect(rightX - ApplyButtonWidth, rowRect.y + RowPad, ApplyButtonWidth, RowHeight - 2 * RowPad);
-            rightX -= ApplyButtonWidth + RowPad;
-
             var exportRect = new Rect(rightX - ExportButtonWidth, rowRect.y + RowPad, ExportButtonWidth, RowHeight - 2 * RowPad);
             rightX -= ExportButtonWidth + RowPad;
 
@@ -77,16 +73,8 @@ namespace GravshipExport
             {
                 GUI.color = Color.green;
                 Text.Anchor = TextAnchor.MiddleCenter;
-                Widgets.Label(applyRect, "Active");
                 GUI.color = Color.white;
                 Text.Anchor = TextAnchor.UpperLeft;
-            }
-            else
-            {
-                if (Widgets.ButtonText(applyRect, "Apply"))
-                {
-                    result.ApplyRequested = true;
-                }
             }
 
             return result;
@@ -131,7 +119,6 @@ namespace GravshipExport
     internal struct ShipRowResult
     {
         public bool DeleteRequested { get; set; }
-        public bool ApplyRequested { get; set; }
         public bool ExportRequested { get; set; }
     }
 }

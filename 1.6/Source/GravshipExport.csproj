@@ -107,6 +107,8 @@
     <Compile Include="GravshipExport\Patch_SketchThing_Spawn.cs" />
     <Compile Include="GravshipExport\Patch_Sketch_GetSuggestedRoofCells_Postfix.cs" />
     <Compile Include="GravshipExport\Settings\ShipManager.cs" />
+    <Compile Include="GravshipExport\Setup\Page_ChooseGravship.cs" />
+    <Compile Include="GravshipExport\Setup\Patch_Scenario_GetFirstConfigPage.cs" />
     <Compile Include="GravshipExport\ShipCell.cs" />
     <Compile Include="GravshipExport\ShipExportController.cs" />
     <Compile Include="GravshipExport\ShipInfoFormatter.cs" />
@@ -145,7 +147,7 @@
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties BuildVersion_UpdateFileVersion="True" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_BuildVersioningStyle="None.None.Increment.TimeStamp" BuildVersion_StartDate="2000/1/1" />
+      <UserProperties BuildVersion_StartDate="2000/1/1" BuildVersion_BuildVersioningStyle="None.None.Increment.TimeStamp" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_UpdateFileVersion="True" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>
