@@ -1,4 +1,6 @@
-﻿using Verse;
+﻿using RimWorld;
+using Verse;
+using System.Collections.Generic;
 
 namespace GravshipExport
 {
@@ -8,6 +10,15 @@ namespace GravshipExport
         public string stuffDef;
         public int rotInteger;
         public string quality;
+        public string plantToGrowDef;
+
+        // Generic-ish settings:
+
+        // 1) Storage settings – store whole StorageSettings snapshot
+        public StorageSettingsSnapshot exportedStorageSettings;
+
+        // 2) Simple comp values stored reflectively (optional)
+        public List<CompSettingsSnapshot> compSettings; // see below
 
         public void ExposeData()
         {
@@ -15,7 +26,13 @@ namespace GravshipExport
             Scribe_Values.Look(ref stuffDef, "stuffDef");
             Scribe_Values.Look(ref rotInteger, "rotInteger");
             Scribe_Values.Look(ref quality, "quality");
+            Scribe_Values.Look(ref plantToGrowDef, "plantToGrowDef");
+
+            Scribe_Deep.Look(ref exportedStorageSettings, "exportedStorageSettings");
+
+            Scribe_Collections.Look(ref compSettings, "compSettings", LookMode.Deep);
         }
+
         public override string ToString()
         {
             return $"{defName ?? "unknown"}" +

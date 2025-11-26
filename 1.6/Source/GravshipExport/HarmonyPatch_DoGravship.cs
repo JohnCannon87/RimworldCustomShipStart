@@ -160,7 +160,14 @@ namespace GravshipExport
                 }
             }
 
-            GravshipLogger.Message($"✅ Terrain pass complete — applied={appliedCount}, skipped={skippedCount}, rotation={relRot}.");
+            // After terrain pass is finished, but before unfog
+            GravshipLogger.Message("DoGravship Postfix: Applying per-thing settings from layout.");
+            ThingSettingsImportHelper.ApplyLayoutThingSettings(map, layout, relRot, offset);
+
+            GravshipLogger.Message(
+                string.Format("✅ Terrain + settings pass complete — applied={0}, skipped={1}, rotation={2}.",
+                    appliedCount, skippedCount, relRot));
+
             LongEventHandler.ExecuteWhenFinished(() =>
             {
                 UnfogEntireMap(map);

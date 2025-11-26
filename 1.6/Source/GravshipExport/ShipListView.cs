@@ -27,7 +27,7 @@ namespace GravshipExport
             outRect.width = Mathf.Max(outRect.width, 880f);
 
             // Ensure cache is up to date
-            ShipManager.Refresh();
+            //ShipManager.Refresh();
 
             // Convert loaded ships into rows
             List<ShipListItem> rows = new List<ShipListItem>();

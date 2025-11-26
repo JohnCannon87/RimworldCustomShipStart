@@ -12,18 +12,47 @@ namespace GravshipExport
     {
         public static void Export(Building_GravEngine engine, string customName = null, string customDescription = null)
         {
+            GravshipLogger.Message("ExportV2: Entered Export method.");
+
             try
             {
-                GravshipLogger.Message("ExportV2 started.");
-
-                var layout = BuildLayout(engine);
-                if (layout == null)
+                if (engine == null)
                 {
-                    GravshipLogger.Warning("ExportV2 failed: layout was null.");
+                    GravshipLogger.Error("ExportV2: engine was null. Aborting export.");
                     return;
                 }
 
+                GravshipLogger.Message(
+                    string.Format("ExportV2: Starting BuildLayout for engine at {0}.",
+                        engine.Position));
+
+                var layout = BuildLayout(engine);
+
+                if (layout == null)
+                {
+                    GravshipLogger.Warning("ExportV2: BuildLayout returned null layout. Aborting export.");
+                    return;
+                }
+
+                try
+                {
+                    GravshipLogger.Message(
+                        string.Format("ExportV2: Layout built. defName={0}, label={1}, rows={2}.",
+                            layout.defName ?? "null",
+                            layout.label ?? "null",
+                            layout.rows != null ? layout.rows.Count.ToString() : "rows=null"));
+                }
+                catch (Exception exInfo)
+                {
+                    GravshipLogger.Warning("ExportV2: Failed to log layout summary: " + exInfo);
+                }
+
                 // ✅ Use provided name if available
+                GravshipLogger.Message(
+                    string.Format("ExportV2: Applying custom name/description. customName='{0}', customDescription length={1}.",
+                        customName ?? "null",
+                        customDescription != null ? customDescription.Length.ToString() : "null"));
+
                 if (!string.IsNullOrEmpty(customName))
                 {
                     layout.defName = customName.Replace(" ", "_");
@@ -36,30 +65,67 @@ namespace GravshipExport
                     layout.description = customDescription.Trim();
                 }
 
+                GravshipLogger.Message(
+                    string.Format("ExportV2: Final layout metadata: defName={0}, label={1}.",
+                        layout.defName ?? "null",
+                        layout.label ?? "null"));
+
                 string folder = Path.Combine(GenFilePaths.ConfigFolderPath, "GravshipExport");
+                GravshipLogger.Message("ExportV2: Target folder resolved to: " + folder);
+
                 if (!Directory.Exists(folder))
+                {
+                    GravshipLogger.Message("ExportV2: Target folder does not exist. Creating directory...");
                     Directory.CreateDirectory(folder);
+                    GravshipLogger.Message("ExportV2: Directory created.");
+                }
 
                 string file = Path.Combine(folder, layout.defName + ".xml");
                 string previewFile = Path.Combine(folder, layout.defName + ".png");
 
-                DirectXmlSaver.SaveDataObject(layout, file);
+                GravshipLogger.Message(
+                    string.Format("ExportV2: File paths set. xml='{0}', preview='{1}'.",
+                        file, previewFile));
+
+                GravshipLogger.Message("ExportV2: About to save XML via DirectXmlSaver.SaveDataObject.");
+                try
+                {
+                    DirectXmlSaver.SaveDataObject(layout, file);
+                    GravshipLogger.Message("ExportV2: XML saved successfully.");
+                }
+                catch (Exception exSave)
+                {
+                    GravshipLogger.Error("ExportV2: DirectXmlSaver.SaveDataObject threw: " + exSave);
+                    // Rethrow so RimWorld gives a red error with full stack trace
+                    throw;
+                }
+
+                GravshipLogger.Message("ExportV2: About to capture preview via ShipPreviewRenderer.Capture.");
                 ShipPreviewRenderer.Capture(engine, layout, previewFile);
+                GravshipLogger.Message("ExportV2: Preview capture completed.");
 
                 // ✅ Show helpful popup guide after successful export
                 string configPath = Path.Combine(GenFilePaths.ConfigFolderPath, "GravshipExport");
+                GravshipLogger.Message(
+                    string.Format("ExportV2: About to show Dialog_ShipExportHelp. configPath='{0}', defName='{1}'.",
+                        configPath, layout.defName ?? "null"));
+
                 Find.WindowStack.Add(new Dialog_ShipExportHelp(configPath, layout.defName));
+                GravshipLogger.Message("ExportV2: Dialog_ShipExportHelp added to WindowStack.");
 
                 // ✅ Immediately refresh the loaded ship list so new export is visible in UI
+                GravshipLogger.Message("ExportV2: About to call ShipManager.Refresh().");
                 ShipManager.Refresh();
+                GravshipLogger.Message("ExportV2: ShipManager.Refresh() complete.");
 
-                GravshipLogger.Message($"ExportV2 complete! Saved to {file}");
+                GravshipLogger.Message("ExportV2 complete! Saved to " + file);
             }
             catch (Exception ex)
             {
-                GravshipLogger.Error($"ExportV2 crashed: {ex}");
+                GravshipLogger.Error("ExportV2 crashed: " + ex);
             }
         }
+
 
         public static ShipLayoutDefV2 BuildLayout(Building_GravEngine engine)
         {
@@ -120,6 +186,7 @@ namespace GravshipExport
                     bool hasStructures = false;
                     foreach (var thing in cell.GetThingList(map))
                     {
+                        GravshipLogger.Message($"Exporting thing {thing.def.defName} at {cell}");
                         if (thing.def == engine.def) continue;
                         if (thing is Pawn) continue;
                         if (thing.def.category != ThingCategory.Building &&
@@ -136,13 +203,7 @@ namespace GravshipExport
                         string stuffName = thing.def.MadeFromStuff && thing.Stuff != null
                             ? thing.Stuff.defName
                             : null;
-
-                        var entry = new ShipThingEntry
-                        {
-                            defName = thing.def.defName,
-                            stuffDef = stuffName,
-                            rotInteger = thing.Rotation.AsInt
-                        };
+                        ShipThingEntry entry = CreateNewThingEntry(thing, stuffName);
 
                         if (thing.TryGetComp<CompQuality>() is CompQuality q)
                             entry.quality = q.Quality.ToString();
@@ -150,6 +211,7 @@ namespace GravshipExport
                         shipCell.things.Add(entry);
                         GravshipLogger.Message($"Exported thing {thing.def.defName} at {cell}");
                     }
+                    GravshipLogger.Message($"Exported everything at {cell}");
 
                     // foundations
                     bool shouldHaveFoundation = terrain != null &&
@@ -162,6 +224,7 @@ namespace GravshipExport
                 }
                 rows.Add(row);
             }
+            GravshipLogger.Message($"Exported Ship Grid, now exporting attachments");
 
             // 🟩 Handle external attachments
             foreach (var pos in attachmentCells)
@@ -171,15 +234,11 @@ namespace GravshipExport
                     var def = thing.def;
                     if (def?.building?.isAttachment != true)
                         continue;
+                    GravshipLogger.Message($"Exporting thing {def.defName} at {pos}");
 
                     string stuffName = def.MadeFromStuff && thing.Stuff != null ? thing.Stuff.defName : null;
 
-                    var entry = new ShipThingEntry
-                    {
-                        defName = def.defName,
-                        stuffDef = stuffName,
-                        rotInteger = thing.Rotation.AsInt
-                    };
+                    ShipThingEntry entry = CreateNewThingEntry(thing, stuffName);
 
                     if (thing.TryGetComp<CompQuality>() is CompQuality q)
                         entry.quality = q.Quality.ToString();
@@ -202,6 +261,7 @@ namespace GravshipExport
                     GravshipLogger.Message($"Exported attachment {def.defName} at {pos}");
                 }
             }
+            GravshipLogger.Message($"Exported Ship Attachments, now exporting Ship");
 
             return new ShipLayoutDefV2
             {
@@ -215,5 +275,41 @@ namespace GravshipExport
             };
         }
 
+        private static ShipThingEntry CreateNewThingEntry(Thing thing, string stuffName)
+        {
+            var entry = new ShipThingEntry
+            {
+                defName = thing.def.defName,
+                stuffDef = stuffName,
+                rotInteger = thing.Rotation.AsInt
+            };
+
+            CompQuality qualityComp = thing.TryGetComp<CompQuality>();
+            if (qualityComp != null)
+            {
+                entry.quality = qualityComp.Quality.ToString();
+            }
+
+            // 1) StorageSettings – copy whole object
+            IStoreSettingsParent ssp = thing as IStoreSettingsParent;
+            if (ssp != null)
+            {
+                entry.exportedStorageSettings = ThingSettingsExportHelper.SnapshotStorageSettings(thing);
+            }
+            else
+            {
+                entry.exportedStorageSettings = null;
+            }
+
+            // 2) Generic comp snapshot for primitive values (optional but “smart”)
+            entry.compSettings = ThingSettingsExportHelper.SnapshotThingComps(thing);
+
+            // new: capture plant selection for hydroponics / grow buildings.
+            ThingDef plantDef = ThingSettingsExportHelper.GetPlantToGrowDef(thing);
+            if (plantDef != null)
+                entry.plantToGrowDef = plantDef.defName;
+
+            return entry;
+        }
     }
 }
